@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FARRUCH EXPORTS - Services</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #c9a875;
+            --dark-color: #1a1a1a;
+            --light-color: #f8f5f0;
+            --accent-color: #8a6d3b;
+            --text-color: #333;
+            --deep-blue: #2c3e50;
+            --gold: #d4af37;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes shimmer {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+            100% { opacity: 0.3; }
+        }
+        
+        @keyframes borderShimmer {
+            0% { border-color: var(--primary-color); }
+            50% { border-color: var(--accent-color); }
+            100% { border-color: var(--primary-color); }
+        }
+        
+        @keyframes widthExpand {
+            from { width: 0; }
+            to { width: 120px; }
+        }
+        
+        @keyframes drawPath {
+            to { stroke-dashoffset: 0; }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-on-scroll.fade-in {
+            animation: fadeIn 1s forwards;
+        }
+        
+        .animate-on-scroll.slide-in-left {
+            animation: slideInLeft 1s forwards;
+        }
+        
+        .animate-on-scroll.slide-in-right {
+            animation: slideInRight 1s forwards;
+        }
+        
+        .animate-on-scroll.scale-in {
+            animation: scaleIn 1s forwards;
+        }
+        
+        .visible {
+            opacity: 1;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--dark-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            transition: all 0.4s ease;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .btn:hover::before {
+            left: 0;
+        }
+        
+        .btn::after {
+            content: "→";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover::after {
+            opacity: 1;
+            right: 15px;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: rgba(248, 245, 240, 0.95);
+        }
+        
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            letter-spacing: 5px;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 300;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: 'EXPORTS';
+            position: absolute;
+            font-size: 12px;
+            letter-spacing: 3px;
+            right: 0;
+            bottom: -10px;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 40px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            position: relative;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+        
+        .nav-links a::before,
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            background-color: var(--primary-color);
+            transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .nav-links a::before {
+            left: 0;
+        }
+        
+        .nav-links a::after {
+            right: 0;
+            transition-delay: 0.1s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a:hover::before,
+        .nav-links a:hover::after {
+            width: 50%;
+        }
+        
+        /* Page Banner */
+        .page-banner {
+            height: 50vh;
+            min-height: 400px;
+            background-color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        
+        .page-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(201, 168, 117, 0.05) 0%, rgba(248, 245, 240, 0) 70%);
+            z-index: 1;
+            animation: shimmer 6s infinite ease-in-out;
+        }
+        
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .banner-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.3s;
+        }
+        
+        .banner-content h1::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 1px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+            animation: widthExpand 1.5s forwards 1.5s;
+        }
+        
+        .banner-content p {
+            font-size: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.6s;
+        }
+        
+        /* Services Overview */
+        .services-overview {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .overview-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .overview-card {
+            padding: 40px;
+            background-color: var(--light-color);
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .overview-card.animate {
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .overview-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .overview-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+            transition: height 0.5s ease;
+        }
+        
+        .overview-card:hover::before {
+            height: 100%;
+        }
+        
+        .overview-icon {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .overview-icon::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--primary-color);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        
+        .overview-card:hover .overview-icon::after {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.3;
+        }
+        
+        .overview-card h3 {
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .overview-card h3::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--primary-color);
+            transition: width 0.5s ease;
+        }
+        
+        .overview-card:hover h3::after {
+            width: 100%;
+        }
+        
+        /* Detailed Services Sections */
+        .service-section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .service-section:nth-child(odd) {
+            background-color: var(--light-color);
+        }
+        
+        .service-section:nth-child(even) {
+            background-color: white;
+        }
+        
+        .service-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(201, 168, 117, 0.05) 0%, rgba(248, 245, 240, 0) 70%);
+            z-index: 0;
+        }
+        
+        .service-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-info h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .service-info h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 1px;
+            background-color: var(--primary-color);
+        }
+        
+        .service-illustration {
+            height: 400px;
+            background-color: #e5dcd0;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-features {
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .feature-item::before {
+            content: "✧";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary-color);
+        }
+        
+        .feature-item h3 {
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+        
+        /* Flow chart for process */
+        .process-flow {
+            padding: 80px 0;
+            background-color: white;
+            position: relative;
+        }
+        
+        .process-flow::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(201, 168, 117, 0.03) 0px,
+                rgba(201, 168, 117, 0.03) 1px,
+                transparent 1px,
+                transparent 20px
+            );
+            z-index: 0;
+        }
+        
+        .process-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-chart {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .chart-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 60px;
+        }
+        
+        .chart-step {
+            width: 160px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        .chart-step:hover .step-circle {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(201, 168, 117, 0.3);
+        }
+        
+        .step-number {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        
+        .chart-step h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .chart-step p {
+            font-size: 14px;
+        }
+        
+        .chart-connector {
+            position: absolute;
+            top: 40px;
+            left: 80px;
+            width: calc(100% - 160px);
+            height: 2px;
+            background-color: var(--primary-color);
+            z-index: 1;
+        }
+        
+        .chart-connector::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 100%;
+            background-color: var(--accent-color);
+            transition: width 1.5s ease;
+        }
+        
+        .chart-connector.animate::before {
+            width: 100%;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .testimonial-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .testimonial-card.animate {
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 60px;
+            color: var(--primary-color);
+            opacity: 0.2;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #e5dcd0;
+            margin-right: 15px;
+            overflow: hidden;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 14px;
+            color: var(--accent-color);
+            margin: 0;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 60px 0 30px;
+            background-color: var(--dark-color);
+            color: white;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            letter-spacing: 3px;
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .footer-logo::after {
+            content: 'EXPORTS';
+            position: absolute;
+            font-size: 10px;
+            letter-spacing: 2px;
+            right: 0;
+            bottom: -8px;
+            color: var(--primary-color);
+        }
+        
+        .footer-links h4 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-links h4::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 30px;
+            height: 1px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            padding-left: 0;
+            transition: padding-left 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .overview-grid,
+            .testimonial-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .chart-steps {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .chart-step {
+                width: calc(50% - 30px);
+                margin-bottom: 40px;
+            }
+            
+            .chart-connector {
+                display: none;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .service-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-illustration {
+                order: -1;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .overview-grid,
+            .testimonial-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .chart-step {
+                width: 100%;
+            }
+            
+            .banner-content h1 {
+                font-size: 36px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">FARRUCH</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="banner-content">
+            <h1>Premium Services</h1>
+            <p>We offer comprehensive import and export solutions for luxury goods, ensuring a seamless experience from sourcing to delivery.</p>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="overview-intro">
+                <h2>Our Service Offerings</h2>
+                <p>Farruch Exports provides end-to-end luxury import and export services that cater to the unique requirements of high-value goods and discerning clients.</p>
+            </div>
+            <div class="overview-grid">
+                <div class="overview-card" id="importing">
+                    <div class="overview-icon">✧</div>
+                    <h3>Luxury Importing</h3>
+                    <p>We source rare and exceptional luxury products from prestigious manufacturers and artisans worldwide, handling all aspects of the import process. Our expertise ensures authentic items of the highest quality reach your destination with perfect documentation and compliance.</p>
+                </div>
+                
+                <div class="overview-card" id="exporting">
+                    <div class="overview-icon">✧</div>
+                    <h3>Export Solutions</h3>
+                    <p>For luxury brands and manufacturers seeking to expand into international markets, we provide comprehensive export services including market research, regulatory compliance, documentation, logistics, and distribution network access to ensure successful market entry.</p>
+                </div>
+                
+                <div class="overview-card" id="customs">
+                    <div class="overview-icon">✧</div>
+                    <h3>Customs & Compliance</h3>
+                    <p>Our specialists navigate the complex regulations surrounding luxury goods imports and exports, handling all aspects of customs clearance, duties, taxes, and special requirements for high-value items such as gemstones, precious metals, and antiquities.</p>
+                </div>
+                
+                <div class="overview-card" id="consultation">
+                    <div class="overview-icon">✧</div>
+                    <h3>Private Consultation</h3>
+                    <p>For discerning clients with specific requirements, we offer personalized consultation services to source rare and exclusive items, arrange bespoke commissions, and create tailored import/export solutions for unique luxury products.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Importing Section -->
+    <section class="service-section">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-info">
+                    <h2>Luxury Importing</h2>
+                    <p>Farruch Exports specializes in sourcing and importing exceptional luxury products from around the world. Our extensive network of relationships with prestigious manufacturers, artisans, and luxury houses gives our clients access to the finest products, including rare and limited-edition items.</p>
+                    <p>From the initial sourcing through customs clearance to final delivery, we manage every aspect of the import process with meticulous attention to detail.</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <h3>Global Sourcing Network</h3>
+                            <p>Access to prestigious luxury manufacturers and artisans across Europe, Asia, and the Americas.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Authentication & Quality Control</h3>
+                            <p>Rigorous verification of authenticity, provenance, and quality by industry experts.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Import Documentation</h3>
+                            <p>Comprehensive handling of all required licenses, permits, certificates, and customs documentation.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Secure Logistics</h3>
+                            <p>Specialized transportation and handling for high-value luxury items with full insurance coverage.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-illustration">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+                        <defs>
+                            <linearGradient id="service-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#d9c6a3" />
+                                <stop offset="50%" style="stop-color:#c9a875" />
+                                <stop offset="100%" style="stop-color:#8a6d3b" />
+                            </linearGradient>
+                            <filter id="service-blur" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="1.5" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                        </defs>
+                        
+                        <!-- Background -->
+                        <rect width="100%" height="100%" fill="#e5dcd0" />
+                        
+                        <!-- World map outline -->
+                        <path d="M80,200 Q120,160 160,180 Q200,200 240,180 Q280,160 320,200 Q280,240 240,220 Q200,200 160,220 Q120,240 80,200" fill="none" stroke="#c9a875" stroke-width="1" opacity="0.5" />
+                        
+                        <!-- Shipping route -->
+                        <path d="M120,180 Q200,150 280,180" fill="none" stroke="#c9a875" stroke-width="2" stroke-dasharray="300" stroke-dashoffset="300">
+                            <animate attributeName="stroke-dashoffset" to="0" dur="3s" begin="0.5s" fill="freeze" />
+                        </path>
+                        
+                        <!-- Shipping container -->
+                        <rect x="250" y="160" width="60" height="40" fill="#f8f5f0" stroke="#8a6d3b" stroke-width="1" />
+                        
+                        <!-- Luxury item -->
+                        <rect x="100" y="160" width="40" height="40" fill="#f8f5f0" stroke="url(#service-gradient)" stroke-width="2" />
+                        
+                        <!-- Animation elements -->
+                        <circle cx="120" cy="180" r="5" fill="#c9a875">
+                            <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" />
+                        </circle>
+                        
+                        <circle cx="280" cy="180" r="5" fill="#c9a875">
+                            <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
+                        </circle>
+                        
+                        <text x="200" y="250" font-family="serif" font-size="14" text-anchor="middle" fill="#1a1a1a" filter="url(#service-blur)">GLOBAL LUXURY IMPORTING</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Export Solutions Section -->
+    <section class="service-section">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-illustration">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+                        <defs>
+                            <linearGradient id="export-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#d9c6a3" />
+                                <stop offset="50%" style="stop-color:#c9a875" />
+                                <stop offset="100%" style="stop-color:#8a6d3b" />
+                            </linearGradient>
+                            <filter id="export-blur" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="1.5" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                        </defs>
+                        
+                        <!-- Background -->
+                        <rect width="100%" height="100%" fill="#e5dcd0" />
+                        
+                        <!-- Market connection diagram -->
+                        <circle cx="200" cy="200" r="100" fill="none" stroke="#c9a875" stroke-width="1" opacity="0.3" />
+                        
+                        <!-- Connection lines -->
+                        <path d="M200,200 L260,140" stroke="#8a6d3b" stroke-width="1" stroke-dasharray="100" stroke-dashoffset="100">
+                            <animate attributeName="stroke-dashoffset" to="0" dur="1s" begin="0.2s" fill="freeze" />
+                        </path>
+                        
+                        <path d="M200,200 L260,200" stroke="#8a6d3b" stroke-width="1" stroke-dasharray="100" stroke-dashoffset="100">
+                            <animate attributeName="stroke-dashoffset" to="0" dur="1s" begin="0.4s" fill="freeze" />
+                        </path>
+                        
+                        <path d="M200,200 L260,260" stroke="#8a6d3b" stroke-width="1" stroke-dasharray="100" stroke-dashoffset="100">
+                            <animate attributeName="stroke-dashoffset" to="0" dur="1s" begin="0.6s" fill="freeze" />
+                        </path>
+                        
+                        <path d="M200,200 L140,140" stroke="#8a6d3b" stroke-width="1" stroke-dasharray="100" stroke-dashoffset="100">
+                            <animate attributeName="stroke-dashoffset" to="0" dur="1s" begin="0.8s" fill="freeze" />
+                        </path>
+                        
+                        <path d="M200,200 L140,200" stroke="#8a6d3b" stroke-width="1" stroke-dasharray="100" stroke-dashoffset="100">
+                            <animate attributeName="stroke-dashoffset" to="0" dur="1s" begin="1s" fill="freeze" />
+                        </path>
+                        
+                        <path d="M200,200 L140,260" stroke="#8a6d3b" stroke-width="1" stroke-dasharray="100" stroke-dashoffset="100">
+                            <animate attributeName="stroke-dashoffset" to="0" dur="1s" begin="1.2s" fill="freeze" />
+                        </path>
+                        
+                        <!-- Central hub -->
+                        <circle cx="200" cy="200" r="20" fill="url(#export-gradient)" />
+                        
+                        <!-- Market nodes -->
+                        <circle cx="260" cy="140" r="10" fill="#f8f5f0" stroke="#c9a875" stroke-width="1" />
+                        <circle cx="260" cy="200" r="10" fill="#f8f5f0" stroke="#c9a875" stroke-width="1" />
+                        <circle cx="260" cy="260" r="10" fill="#f8f5f0" stroke="#c9a875" stroke-width="1" />
+                        <circle cx="140" cy="140" r="10" fill="#f8f5f0" stroke="#c9a875" stroke-width="1" />
+                        <circle cx="140" cy="200" r="10" fill="#f8f5f0" stroke="#c9a875" stroke-width="1" />
+                        <circle cx="140" cy="260" r="10" fill="#f8f5f0" stroke="#c9a875" stroke-width="1" />
+                        
+                        <text x="200" y="250" font-family="serif" font-size="14" text-anchor="middle" fill="#1a1a1a" filter="url(#export-blur)">GLOBAL MARKET EXPANSION</text>
+                    </svg>
+                </div>
+                <div class="service-info">
+                    <h2>Export Solutions</h2>
+                    <p>For luxury brands, manufacturers, and artisans seeking to expand into international markets, Farruch Exports provides comprehensive export services. We leverage our global presence and expertise to create tailored export strategies for high-value luxury goods.</p>
+                    <p>Our approach combines deep market knowledge with technical expertise in international trade regulations to ensure successful market entry and sustainable growth.</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <h3>Market Research & Strategy</h3>
+                            <p>Tailored market analysis and entry strategies for luxury products in target international markets.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Regulatory Compliance</h3>
+                            <p>Expert guidance on export regulations, product certification, labeling requirements, and intellectual property protection.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Distribution Networks</h3>
+                            <p>Access to established luxury retail networks and high-end distribution channels in key global markets.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Export Documentation</h3>
+                            <p>Preparation of all required export documentation, licenses, permits, and certificates of origin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customs & Compliance Section -->
+    <section class="service-section">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-info">
+                    <h2>Customs & Compliance</h2>
+                    <p>Navigating the complex regulations surrounding luxury goods imports and exports requires specialized expertise. Farruch Exports handles all aspects of customs clearance and regulatory compliance for high-value items, ensuring smooth and efficient processing.</p>
+                    <p>Our customs specialists maintain up-to-date knowledge of international trade regulations and luxury goods-specific requirements to prevent delays and compliance issues.</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <h3>Customs Clearance</h3>
+                            <p>Streamlined handling of all customs formalities for luxury goods in major international ports.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Duty & Tax Management</h3>
+                            <p>Strategic planning and optimization of duties, taxes, and other import/export charges.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Special Permits</h3>
+                            <p>Obtaining specialized permits for restricted luxury items such as exotic materials, rare gemstones, and antiquities.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Compliance Audit</h3>
+                            <p>Regular review and audit of all import/export documentation to ensure regulatory compliance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-illustration">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+                        <defs>
+                            <linearGradient id="customs-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#d9c6a3" />
+                                <stop offset="50%" style="stop-color:#c9a875" />
+                                <stop offset="100%" style="stop-color:#8a6d3b" />
+                            </linearGradient>
+                            <filter id="customs-blur" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="1.5" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                        </defs>
+                        
+                        <!-- Background -->
+                        <rect width="100%" height="100%" fill="#e5dcd0" />
+                        
+                        <!-- Document stack -->
+                        <rect x="120" y="140" width="160" height="20" fill="#f8f5f0" stroke="#8a6d3b" stroke-width="1" />
+                        <rect x="125" y="130" width="160" height="20" fill="#f8f5f0" stroke="#8a6d3b" stroke-width="1" />
+                        <rect x="130" y="120" width="160" height="20" fill="#f8f5f0" stroke="#8a6d3b" stroke-width="1" />
+                        
+                        <!-- Stamp animation -->
+                        <circle cx="200" cy="200" r="40" fill="none" stroke="#c9a875" stroke-width="2" opacity="0.7">
+                            <animate attributeName="r" values="40;45;40" dur="3s" repeatCount="indefinite" />
+                        </circle>
+                        
+                        <path d="M170,200 L230,200 M200,170 L200,230" stroke="#c9a875" stroke-width="2" opacity="0.7" />
+                        
+                        <!-- Document text lines -->
+                        <path d="M150,125 L260,125" stroke="#8a6d3b" stroke-width="1" opacity="0.5" />
+                        <path d="M150,135 L240,135" stroke="#8a6d3b" stroke-width="1" opacity="0.5" />
+                        <path d="M150,145 L250,145" stroke="#8a6d3b" stroke-width="1" opacity="0.5" />
+                        <path d="M150,155 L230,155" stroke="#8a6d3b" stroke-width="1" opacity="0.5" />
+                        
+                        <text x="200" y="250" font-family="serif" font-size="14" text-anchor="middle" fill="#1a1a1a" filter="url(#customs-blur)">CUSTOMS & COMPLIANCE</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Private Consultation Section -->
+    <section class="service-section">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-illustration">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+                        <defs>
+                            <linearGradient id="consult-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#d9c6a3" />
+                                <stop offset="50%" style="stop-color:#c9a875" />
+                                <stop offset="100%" style="stop-color:#8a6d3b" />
+                            </linearGradient>
+                            <filter id="consult-blur" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="1.5" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                        </defs>
+                        
+                        <!-- Background -->
+                        <rect width="100%" height="100%" fill="#e5dcd0" />
+                        
+                        <!-- Luxury consultation setting -->
+                        <rect x="80" y="150" width="240" height="150" rx="5" fill="#f8f5f0" stroke="#8a6d3b" stroke-width="1" />
+                        
+                        <!-- Table -->
+                        <rect x="100" y="200" width="200" height="10" fill="#8a6d3b" />
+                        
+                        <!-- Luxury items on display -->
+                        <circle cx="140" cy="180" r="15" fill="url(#consult-gradient)" opacity="0.7" />
+                        <rect x="170" cy="170" width="20" height="20" fill="url(#consult-gradient)" opacity="0.7" />
+                        <path d="M220,165 L240,165 L230,185 Z" fill="url(#consult-gradient)" opacity="0.7" />
+                        
+                        <!-- People silhouettes -->
+                        <circle cx="140" cy="240" r="15" fill="#1a1a1a" opacity="0.7" />
+                        <path d="M140,255 Q140,270 130,275 M140,255 Q140,270 150,275" stroke="#1a1a1a" stroke-width="2" opacity="0.7" />
+                        
+                        <circle cx="260" cy="240" r="15" fill="#1a1a1a" opacity="0.7" />
+                        <path d="M260,255 Q260,270 250,275 M260,255 Q260,270 270,275" stroke="#1a1a1a" stroke-width="2" opacity="0.7" />
+                        
+                        <text x="200" y="310" font-family="serif" font-size="14" text-anchor="middle" fill="#1a1a1a" filter="url(#consult-blur)">PRIVATE CONSULTATION</text>
+                    </svg>
+                </div>
+                <div class="service-info">
+                    <h2>Private Consultation</h2>
+                    <p>For discerning clients with specific requirements, Farruch Exports offers personalized consultation services. Our luxury specialists work closely with clients to understand their unique needs and provide tailored solutions for sourcing rare and exclusive items.</p>
+                    <p>Whether you're seeking a specific luxury product, interested in commissioning a bespoke piece, or exploring international market opportunities, our consultation service offers discreet and expert guidance.</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <h3>Rare Item Sourcing</h3>
+                            <p>Specialized search and acquisition of rare, limited edition, and hard-to-find luxury items from around the world.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Bespoke Commissions</h3>
+                            <p>Arranging custom commissions with renowned artisans and luxury houses to create one-of-a-kind pieces.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Market Entry Strategy</h3>
+                            <p>Personalized guidance for luxury brands seeking to enter new international markets.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Collection Development</h3>
+                            <p>Expert advisory services for developing and enhancing luxury product collections based on specific criteria and preferences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Flow -->
+    <section class="process-flow">
+        <div class="container">
+            <div class="process-intro">
+                <h2>Our Service Process</h2>
+                <p>At Farruch Exports, we follow a systematic approach to ensure exceptional service delivery and client satisfaction through every stage of our import and export operations.</p>
+            </div>
+            <div class="process-chart">
+                <div class="chart-connector"></div>
+                <div class="chart-steps">
+                    <div class="chart-step">
+                        <div class="step-circle">
+                            <span class="step-number">1</span>
+                        </div>
+                        <h3>Consultation</h3>
+                        <p>Initial meeting to understand requirements and establish specifications</p>
+                    </div>
+                    <div class="chart-step">
+                        <div class="step-circle">
+                            <span class="step-number">2</span>
+                        </div>
+                        <h3>Proposal</h3>
+                        <p>Detailed service plan with timeline, process, and cost structure</p>
+                    </div>
+                    <div class="chart-step">
+                        <div class="step-circle">
+                            <span class="step-number">3</span>
+                        </div>
+                        <h3>Execution</h3>
+                        <p>Implementation of the agreed service plan with regular updates</p>
+                    </div>
+                    <div class="chart-step">
+                        <div class="step-circle">
+                            <span class="step-number">4</span>
+                        </div>
+                        <h3>Completion</h3>
+                        <p>Final delivery with all documentation and after-service support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonial-intro">
+                <h2>Client Testimonials</h2>
+                <p>Hear what our valued clients have to say about their experience with Farruch Exports' services.</p>
+            </div>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Farruch Exports' expertise in luxury importing was invaluable for our boutique. Their attention to detail and ability to navigate complex customs requirements ensured our exclusive items arrived on time and in perfect condition."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="100%" height="100%">
+                                <rect width="100%" height="100%" fill="#e5dcd0" />
+                                <circle cx="25" cy="20" r="10" fill="#c9a875" />
+                                <path d="M12,40 Q25,30 38,40" fill="#c9a875" />
+                            </svg>
+                        </div>
+                        <div class="author-info">
+                            <h4>Isabella Chen</h4>
+                            <p>Luxury Boutique Owner, Singapore</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The private consultation service exceeded our expectations. Farruch helped us source a collection of rare artisanal pieces that perfectly matched our specific requirements. Their global network is truly impressive."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="100%" height="100%">
+                                <rect width="100%" height="100%" fill="#e5dcd0" />
+                                <circle cx="25" cy="20" r="10" fill="#c9a875" />
+                                <path d="M12,40 Q25,30 38,40" fill="#c9a875" />
+                            </svg>
+                        </div>
+                        <div class="author-info">
+                            <h4>Marcus Reynolds</h4>
+                            <p>Private Collector, New York</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"As a small luxury brand entering international markets, Farruch's export solutions provided the expertise and connections we needed. Their strategic guidance helped us successfully establish our presence in three new countries."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="100%" height="100%">
+                                <rect width="100%" height="100%" fill="#e5dcd0" />
+                                <circle cx="25" cy="20" r="10" fill="#c9a875" />
+                                <path d="M12,40 Q25,30 38,40" fill="#c9a875" />
+                            </svg>
+                        </div>
+                        <div class="author-info">
+                            <h4>Sophia Moreau</h4>
+                            <p>Founder, Atelier Lumière, Paris</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Elevate Your Luxury Import & Export Experience?</h2>
+                <p>Contact our team to discuss your specific requirements and discover how our specialized services can meet your luxury goods needs.</p>
+                <a href="contact.html" class="btn">Request Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <span class="footer-logo">FARRUCH</span>
+                    <p>Premier luxury import & export company connecting exceptional products with discerning clients worldwide since 1995.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">F</a>
+                        <a href="#" class="social-link">T</a>
+                        <a href="#" class="social-link">I</a>
+                        <a href="#" class="social-link">L</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#importing">Luxury Importing</a></li>
+                        <li><a href="#exporting">Export Solutions</a></li>
+                        <li><a href="#customs">Customs Clearance</a></li>
+                        <li><a href="#consultation">Private Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Farruch Exports. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Scroll animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.overview-card, .testimonial-card, .chart-connector');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight * 0.85) {
+                    element.classList.add('animate');
+                }
+            });
+        };
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            // Initial check for elements in view
+            setTimeout(() => {
+                animateOnScroll();
+            }, 100);
+        });
+        
+        // Check for elements to animate on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Stagger animation for overview cards
+        const overviewCards = document.querySelectorAll('.overview-card');
+        overviewCards.forEach((card, index) => {
+            card.style.animationDelay = `${0.2 * index}s`;
+        });
+        
+        // Stagger animation for testimonial cards
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        testimonialCards.forEach((card, index) => {
+            card.style.animationDelay = `${0.2 * index}s`;
+        });
+    </script>
+</body>
+</html>

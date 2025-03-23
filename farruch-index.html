@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FARRUCH - Luxury Designer Handwork</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #c9a875;
+            --dark-color: #1a1a1a;
+            --light-color: #f8f5f0;
+            --accent-color: #8a6d3b;
+            --text-color: #333;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes floatAnimation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        
+        @keyframes shimmer {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+            100% { opacity: 0.3; }
+        }
+        
+        @keyframes rotateIn {
+            from { transform: rotate(-5deg) scale(0.9); opacity: 0; }
+            to { transform: rotate(0) scale(1); opacity: 1; }
+        }
+        
+        @keyframes borderShimmer {
+            0% { border-color: var(--primary-color); }
+            50% { border-color: var(--accent-color); }
+            100% { border-color: var(--primary-color); }
+        }
+        
+        @keyframes drawStroke {
+            to { stroke-dashoffset: 0; }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-on-scroll.fade-in {
+            animation: fadeIn 1s forwards;
+        }
+        
+        .animate-on-scroll.slide-in-left {
+            animation: slideInLeft 1s forwards;
+        }
+        
+        .animate-on-scroll.slide-in-right {
+            animation: slideInRight 1s forwards;
+        }
+        
+        .animate-on-scroll.scale-in {
+            animation: scaleIn 1s forwards;
+        }
+        
+        .animate-on-scroll.rotate-in {
+            animation: rotateIn 1s forwards;
+        }
+        
+        .visible {
+            opacity: 1;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--dark-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            transition: all 0.4s ease;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .btn:hover::before {
+            left: 0;
+        }
+        
+        .btn::after {
+            content: "→";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover::after {
+            opacity: 1;
+            right: 15px;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: rgba(248, 245, 240, 0.95);
+        }
+        
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            letter-spacing: 5px;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 300;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 40px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            position: relative;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+        
+        .nav-links a::before,
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            background-color: var(--primary-color);
+            transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .nav-links a::before {
+            left: 0;
+        }
+        
+        .nav-links a::after {
+            right: 0;
+            transition-delay: 0.1s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a:hover::before,
+        .nav-links a:hover::after {
+            width: 50%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--light-color);
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(201, 168, 117, 0.05) 0%, rgba(248, 245, 240, 0) 70%);
+            z-index: 1;
+            animation: shimmer 6s infinite ease-in-out;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            animation: slideInLeft 1.2s forwards;
+        }
+        
+        .hero h1 {
+            font-size: 60px;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            color: var(--dark-color);
+            opacity: 0;
+            animation: fadeIn 1.2s forwards 0.4s;
+        }
+        
+        .hero h1::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 1px;
+            background-color: var(--primary-color);
+            margin-top: 10px;
+            animation: widthExpand 1.5s forwards 1.5s;
+            opacity: 0.7;
+        }
+        
+        @keyframes widthExpand {
+            from { width: 0; }
+            to { width: 120px; }
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--text-color);
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 1.2s forwards 0.6s;
+        }
+        
+        .hero .btn {
+            opacity: 0;
+            animation: fadeIn 1.2s forwards 0.8s;
+        }
+        
+        .hero-img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #e5dcd0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideInRight 1.2s forwards;
+        }
+        
+        .hero-img svg {
+            animation: scaleIn 1.5s forwards 0.5s;
+            opacity: 0;
+        }
+        
+        .hero-img path, .hero-img rect:nth-of-type(2) {
+            animation: drawElement 3s forwards 1s;
+        }
+        
+        @keyframes drawElement {
+            0% { opacity: 0; }
+            100% { opacity: 0.7; }
+        }
+        
+        /* Floating gold particles */
+        .gold-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .about-img {
+            background-color: #e5dcd0;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Craftsmanship Section */
+        .craftsmanship {
+            padding: 120px 0;
+            background-color: var(--light-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .craftsmanship::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(201, 168, 117, 0.08) 0%, rgba(248, 245, 240, 0) 70%);
+            top: -100px;
+            left: -100px;
+            z-index: 0;
+        }
+        
+        .craftsmanship::after {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(201, 168, 117, 0.08) 0%, rgba(248, 245, 240, 0) 70%);
+            bottom: -200px;
+            right: -200px;
+            z-index: 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-header h2 {
+            font-size: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::before,
+        .section-header h2::after {
+            content: "";
+            position: absolute;
+            height: 1px;
+            background-color: var(--primary-color);
+            top: 50%;
+            width: 0;
+            transition: width 1s ease;
+        }
+        
+        .section-header h2::before {
+            right: 100%;
+            margin-right: 20px;
+        }
+        
+        .section-header h2::after {
+            left: 100%;
+            margin-left: 20px;
+        }
+        
+        .section-header.animate h2::before,
+        .section-header.animate h2::after {
+            width: 60px;
+        }
+        
+        .craft-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .craft-item {
+            background-color: white;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .craft-item.animate {
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .craft-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .craft-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .craft-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .craft-icon {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .craft-icon::after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--primary-color);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        
+        .craft-item:hover .craft-icon::after {
+            transform: translate(-50%, -50%) scale(1.2);
+            opacity: 0.3;
+        }
+        
+        .craft-item h3 {
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            transition: letter-spacing 0.4s ease;
+        }
+        
+        .craft-item:hover h3 {
+            letter-spacing: 1px;
+        }
+        
+        /* Designers Section */
+        .designers {
+            padding: 120px 0;
+            background-color: white;
+        }
+        
+        .designers-content {
+            text-align: center;
+        }
+        
+        .designer-logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 60px;
+        }
+        
+        .designer-logo {
+            height: 80px;
+            width: 150px;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 120px 0;
+            background-color: var(--light-color);
+            position: relative;
+        }
+        
+        .gallery::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(201, 168, 117, 0.03) 0px,
+                rgba(201, 168, 117, 0.03) 1px,
+                transparent 1px,
+                transparent 20px
+            );
+            z-index: 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .gallery-item {
+            height: 350px;
+            background-color: #e5dcd0;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: scale(0.95);
+            opacity: 0;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-item.animate {
+            animation: galleryFadeIn 0.8s forwards;
+        }
+        
+        @keyframes galleryFadeIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+        
+        .gallery-item svg {
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .gallery-item:hover svg {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item text {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .gallery-item:hover text {
+            opacity: 1;
+        }
+        
+        .gallery-item path, .gallery-item rect, .gallery-item circle, .gallery-item ellipse {
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item:hover path, .gallery-item:hover rect:not(:first-child), .gallery-item:hover circle, .gallery-item:hover ellipse {
+            stroke-width: 3;
+            stroke: var(--primary-color);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+            background-color: white;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+        }
+        
+        .contact-info h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-details {
+            margin-top: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            margin-right: 20px;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none;
+            background-color: #f5f5f5;
+            font-family: inherit;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: none;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            background-color: var(--dark-color);
+            color: white;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            letter-spacing: 3px;
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-links h4 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .craft-grid,
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-img {
+                display: none;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-content,
+            .contact-content,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .designer-logos {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .craft-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">FARRUCH</a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#craftsmanship">Craftsmanship</a></li>
+                    <li><a href="#designers">Designers</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Exceptional Handwork for the World's Leading Fashion Houses</h1>
+                <p>Farruch creates exquisite handcrafted embellishments, embroidery, and textiles featured on international runways and red carpets by the most prestigious fashion designers.</p>
+                <a href="#contact" class="btn">Discover Our Artistry</a>
+            </div>
+        </div>
+        <div class="hero-img">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+                <defs>
+                    <pattern id="gold-pattern" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="rotate(45)">
+                        <line x1="0" y1="0" x2="0" y2="20" stroke="#c9a875" stroke-width="1" />
+                    </pattern>
+                    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                    <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#e5d0a0" />
+                        <stop offset="50%" style="stop-color:#c9a875" />
+                        <stop offset="100%" style="stop-color:#8a6d3b" />
+                    </linearGradient>
+                </defs>
+                <rect width="100%" height="100%" fill="#e5dcd0" />
+                <rect width="80%" height="70%" x="10%" y="15%" fill="url(#gold-pattern)" opacity="0.3">
+                    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="10s" repeatCount="indefinite" />
+                </rect>
+                <path d="M300,250 L380,350 L300,450 L220,350 Z" fill="url(#gold-gradient)" opacity="0.7">
+                    <animate attributeName="d" 
+                             values="M300,250 L380,350 L300,450 L220,350 Z;
+                                    M300,240 L390,350 L300,460 L210,350 Z;
+                                    M300,250 L380,350 L300,450 L220,350 Z" 
+                             dur="10s" 
+                             repeatCount="indefinite" />
+                </path>
+                <text x="300" y="350" font-family="serif" font-size="24" text-anchor="middle" fill="#1a1a1a" filter="url(#glow)">FARRUCH</text>
+                <text x="300" y="380" font-family="serif" font-size="12" text-anchor="middle" fill="#1a1a1a">EST. 1985</text>
+                
+                <!-- Animated decorative elements -->
+                <circle cx="300" cy="250" r="3" fill="#c9a875">
+                    <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="380" cy="350" r="3" fill="#c9a875">
+                    <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" begin="0.5s" />
+                </circle>
+                <circle cx="300" cy="450" r="3" fill="#c9a875">
+                    <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" begin="1s" />
+                </circle>
+                <circle cx="220" cy="350" r="3" fill="#c9a875">
+                    <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" begin="1.5s" />
+                </circle>
+                
+                <!-- Gold thread stitching animation -->
+                <path d="M250,250 Q300,200 350,250" fill="none" stroke="#c9a875" stroke-width="1" opacity="0.6" stroke-dasharray="1,3">
+                    <animate attributeName="stroke-dashoffset" from="40" to="0" dur="10s" repeatCount="indefinite" />
+                </path>
+                <path d="M250,450 Q300,500 350,450" fill="none" stroke="#c9a875" stroke-width="1" opacity="0.6" stroke-dasharray="1,3">
+                    <animate attributeName="stroke-dashoffset" from="40" to="0" dur="10s" repeatCount="indefinite" />
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Heritage of Excellence</h2>
+                    <p>For over three decades, Farruch has been at the forefront of luxury handwork, preserving ancient techniques while innovating for the modern fashion industry. Our artisans combine centuries-old traditions with contemporary vision to create extraordinary pieces that define haute couture.</p>
+                    <p>Every stitch, bead, and embellishment is meticulously placed by master craftspeople who have dedicated their lives to perfecting their art. This unwavering commitment to excellence has made Farruch the premier partner for the world's most discerning fashion designers.</p>
+                    <a href="#craftsmanship" class="btn">Our Craftsmanship</a>
+                </div>
+                <div class="about-img">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+                        <defs>
+                            <filter id="artisan-blur" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="2" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                            <linearGradient id="artisan-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#d9c6a3" />
+                                <stop offset="50%" style="stop-color:#c9a875" />
+                                <stop offset="100%" style="stop-color:#8a6d3b" />
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Background -->
+                        <rect width="100%" height="100%" fill="#e5dcd0">
+                            <animate attributeName="opacity" values="1;0.8;1" dur="8s" repeatCount="indefinite" />
+                        </rect>
+                        
+                        <!-- Circle background -->
+                        <circle cx="250" cy="250" r="150" fill="#f8f5f0">
+                            <animate attributeName="r" values="150;155;150" dur="10s" repeatCount="indefinite" />
+                        </circle>
+                        
+                        <!-- Thread pattern background -->
+                        <g opacity="0.2">
+                            <path d="M100,100 L400,400" stroke="#c9a875" stroke-width="0.5" />
+                            <path d="M150,100 L400,350" stroke="#c9a875" stroke-width="0.5" />
+                            <path d="M200,100 L400,300" stroke="#c9a875" stroke-width="0.5" />
+                            <path d="M250,100 L400,250" stroke="#c9a875" stroke-width="0.5" />
+                            <path d="M300,100 L400,200" stroke="#c9a875" stroke-width="0.5" />
+                            <path d="M350,100 L400,150" stroke="#c9a875" stroke-width="0.5" />
+                            
+                            <path d="M100,150 L350,400" stroke="#c9a875" stroke-width="0.5" />
+                            <path d="M100,200 L300,400" stroke="#c9a875" stroke-width="0.5" />
+                            <path d="M100,250 L250,400" stroke="#c9a875" stroke-width="0.5" />
+                            <path d="M100,300 L200,400" stroke="#c9a875" stroke-width="0.5" />
+                            <path d="M100,350 L150,400" stroke="#c9a875" stroke-width="0.5" />
+                        </g>
+                        
+                        <!-- Artisan figure -->
+                        <path d="M250,120 Q350,200 250,380 Q150,200 250,120" fill="url(#artisan-gradient)" opacity="0.6">
+                            <animate attributeName="d" 
+                                   values="M250,120 Q350,200 250,380 Q150,200 250,120;
+                                           M250,125 Q355,205 250,385 Q145,205 250,125;
+                                           M250,120 Q350,200 250,380 Q150,200 250,120" 
+                                   dur="8s" 
+                                   repeatCount="indefinite" />
+                        </path>
+                        
+                        <!-- Head -->
+                        <circle cx="250" cy="190" r="15" fill="#8a6d3b">
+                            <animate attributeName="r" values="15;16;15" dur="4s" repeatCount="indefinite" />
+                        </circle>
+                        
+                        <!-- Smile -->
+                        <path d="M190,260 Q250,290 310,260" stroke="#8a6d3b" stroke-width="3" fill="transparent">
+                            <animate attributeName="d" 
+                                   values="M190,260 Q250,290 310,260;
+                                           M190,262 Q250,295 310,262;
+                                           M190,260 Q250,290 310,260" 
+                                   dur="6s" 
+                                   repeatCount="indefinite" />
+                        </path>
+                        
+                        <!-- Thread animation -->
+                        <path d="M180,130 Q250,100 320,130" stroke="#c9a875" stroke-width="1" fill="transparent" stroke-dasharray="2,2" opacity="0.7">
+                            <animate attributeName="stroke-dashoffset" from="100" to="0" dur="15s" repeatCount="indefinite" />
+                        </path>
+                        
+                        <path d="M160,170 Q250,120 340,170" stroke="#c9a875" stroke-width="1" fill="transparent" stroke-dasharray="2,2" opacity="0.7">
+                            <animate attributeName="stroke-dashoffset" from="100" to="0" dur="15s" repeatCount="indefinite" begin="1s" />
+                        </path>
+                        
+                        <!-- Text with glow effect -->
+                        <text x="250" y="440" font-family="serif" font-size="16" text-anchor="middle" fill="#1a1a1a" filter="url(#artisan-blur)">ARTISAN EXCELLENCE</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Craftsmanship Section -->
+    <section class="craftsmanship" id="craftsmanship">
+        <div class="container">
+            <div class="section-header">
+                <h2>Masterful Craftsmanship</h2>
+                <p>Our specialized techniques have adorned the creations of prestigious fashion houses worldwide</p>
+            </div>
+            <div class="craft-grid">
+                <div class="craft-item">
+                    <div class="craft-icon">✧</div>
+                    <h3>Hand Embroidery</h3>
+                    <p>Exquisite hand embroidery techniques including zardozi, aari, tambour beading, and haute couture methods that transform fabrics into works of art.</p>
+                </div>
+                <div class="craft-item">
+                    <div class="craft-icon">✧</div>
+                    <h3>Bespoke Textiles</h3>
+                    <p>Custom-developed textiles using rare materials and innovative weaving techniques to create unique surfaces that inspire designers worldwide.</p>
+                </div>
+                <div class="craft-item">
+                    <div class="craft-icon">✧</div>
+                    <h3>Couture Finishes</h3>
+                    <p>Meticulous attention to detail in finishing, from hand-rolled hems to microscopic beadwork that elevates fashion to the level of high art.</p>
+                </div>
+                <div class="craft-item">
+                    <div class="craft-icon">✧</div>
+                    <h3>3D Embellishments</h3>
+                    <p>Sculptural embellishments that add dimension and drama to runway creations, each handcrafted to the designer's exact specification.</p>
+                </div>
+                <div class="craft-item">
+                    <div class="craft-icon">✧</div>
+                    <h3>Heritage Techniques</h3>
+                    <p>Preservation and evolution of centuries-old handwork methods from across the world, adapted for contemporary luxury fashion.</p>
+                </div>
+                <div class="craft-item">
+                    <div class="craft-icon">✧</div>
+                    <h3>Custom Development</h3>
+                    <p>Collaborative creation of new techniques and applications, working alongside designers to bring their most ambitious visions to life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Designers Section -->
+    <section class="designers" id="designers">
+        <div class="container">
+            <div class="designers-content">
+                <div class="section-header">
+                    <h2>Trusted by Elite Designers</h2>
+                    <p>Our handwork graces the runway collections and red carpet creations of the world's most prestigious fashion houses</p>
+                </div>
+                <p>For decades, Farruch has been the secret behind many iconic fashion moments. Our artisans' work has been featured at international fashion weeks, major award ceremonies, and royal events. We take pride in our confidential collaborations with the most distinguished names in fashion, helping them realize their creative visions with unparalleled craftsmanship.</p>
+                <p>From Paris and Milan to New York and London, Farruch's exceptional handwork has become synonymous with luxury at its finest. Our commitment to discretion and excellence has earned us the trust of designers who accept nothing less than perfection.</p>
+                <div class="designer-logos">
+                    <div class="designer-logo">Designer A</div>
+                    <div class="designer-logo">Designer B</div>
+                    <div class="designer-logo">Designer C</div>
+                    <div class="designer-logo">Designer D</div>
+                    <div class="designer-logo">Designer E</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Portfolio</h2>
+                <p>A glimpse into the artistry behind runway sensations and red carpet moments</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" width="100%" height="100%">
+                        <rect width="100%" height="100%" fill="#e5dcd0" />
+                        <circle cx="200" cy="175" r="100" fill="#f8f5f0" />
+                        <path d="M150,100 C250,50 350,150 250,250 C150,350 50,250 150,100" fill="none" stroke="#c9a875" stroke-width="2" />
+                        <text x="200" y="175" font-family="serif" font-size="14" text-anchor="middle" fill="#8a6d3b">BEADED EMBROIDERY</text>
+                    </svg>
+                </div>
+                <div class="gallery-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" width="100%" height="100%">
+                        <rect width="100%" height="100%" fill="#e5dcd0" />
+                        <rect x="100" y="75" width="200" height="200" fill="#f8f5f0" />
+                        <path d="M100,75 L300,275 M300,75 L100,275" stroke="#c9a875" stroke-width="2" />
+                        <text x="200" y="175" font-family="serif" font-size="14" text-anchor="middle" fill="#8a6d3b">COUTURE FINISHES</text>
+                    </svg>
+                </div>
+                <div class="gallery-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" width="100%" height="100%">
+                        <rect width="100%" height="100%" fill="#e5dcd0" />
+                        <path d="M200,75 L300,175 L200,275 L100,175 Z" fill="#f8f5f0" />
+                        <path d="M200,95 L280,175 L200,255 L120,175 Z" fill="none" stroke="#c9a875" stroke-width="2" />
+                        <text x="200" y="175" font-family="serif" font-size="14" text-anchor="middle" fill="#8a6d3b">ZARDOZI WORK</text>
+                    </svg>
+                </div>
+                <div class="gallery-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" width="100%" height="100%">
+                        <rect width="100%" height="100%" fill="#e5dcd0" />
+                        <ellipse cx="200" cy="175" rx="150" ry="100" fill="#f8f5f0" />
+                        <ellipse cx="200" cy="175" rx="120" ry="80" fill="none" stroke="#c9a875" stroke-width="2" />
+                        <text x="200" y="175" font-family="serif" font-size="14" text-anchor="middle" fill="#8a6d3b">TAMBOUR BEADING</text>
+                    </svg>
+                </div>
+                <div class="gallery-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" width="100%" height="100%">
+                        <rect width="100%" height="100%" fill="#e5dcd0" />
+                        <rect x="80" y="80" width="240" height="190" fill="#f8f5f0" />
+                        <path d="M80,80 L320,80 L320,270 L80,270 Z" fill="none" stroke="#c9a875" stroke-width="3" />
+                        <text x="200" y="175" font-family="serif" font-size="14" text-anchor="middle" fill="#8a6d3b">3D EMBELLISHMENTS</text>
+                    </svg>
+                </div>
+                <div class="gallery-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" width="100%" height="100%">
+                        <rect width="100%" height="100%" fill="#e5dcd0" />
+                        <path d="M100,100 Q200,50 300,100 Q350,200 300,250 Q200,300 100,250 Q50,200 100,100" fill="#f8f5f0" />
+                        <path d="M150,150 Q200,120 250,150 Q275,200 250,225 Q200,250 150,225 Q125,200 150,150" fill="none" stroke="#c9a875" stroke-width="2" />
+                        <text x="200" y="175" font-family="serif" font-size="14" text-anchor="middle" fill="#8a6d3b">BESPOKE TEXTILES</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Connect With Us</h2>
+                    <p>For inquiries regarding bespoke collaborations, please contact our atelier. We work exclusively with established fashion houses and designers on a project basis.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">✧</div>
+                            <div>
+                                <h4>Headquarters</h4>
+                                <p>1234 Fashion Avenue, Design District<br>New York, NY 10001</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✧</div>
+                            <div>
+                                <h4>International Ateliers</h4>
+                                <p>Paris • Milan • London • Mumbai</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✧</div>
+                            <div>
+                                <h4>Contact</h4>
+                                <p>atelier@farruch.com<br>+1 (212) 555-7890</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <input type="text" placeholder="Name" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="text" placeholder="Fashion House/Company">
+                        <textarea placeholder="Tell us about your project"></textarea>
+                        <button type="submit" class="btn">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <span class="footer-logo">FARRUCH</span>
+                    <p>Exceptional handwork for the world's leading fashion designers since 1985.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#craftsmanship">Craftsmanship</a></li>
+                        <li><a href="#designers">Designers</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Bespoke Development</a></li>
+                        <li><a href="#">Runway Collections</a></li>
+                        <li><a href="#">Red Carpet Creations</a></li>
+                        <li><a href="#">Heritage Techniques</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Farruch Luxury Handwork. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Scroll animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.section-header, .craft-item, .gallery-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight * 0.85) {
+                    if (element.classList.contains('section-header')) {
+                        element.classList.add('animate');
+                    } else if (element.classList.contains('craft-item')) {
+                        element.classList.add('animate');
+                    } else if (element.classList.contains('gallery-item')) {
+                        element.classList.add('animate');
+                    }
+                }
+            });
+        };
+        
+        // Gold particles animation for hero section
+        const createGoldParticles = () => {
+            const particlesContainer = document.createElement('div');
+            particlesContainer.className = 'gold-particles';
+            const hero = document.querySelector('.hero');
+            hero.appendChild(particlesContainer);
+            
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size between 2px and 5px
+                const size = Math.random() * 3 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                
+                // Animation
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animation = `floatAnimation ${duration}s infinite ${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        };
+        
+        // Animate SVG paths
+        const animateSvgPaths = () => {
+            const svgs = document.querySelectorAll('.gallery-item svg path, .about-img svg path');
+            
+            svgs.forEach(path => {
+                if (path.getTotalLength) {
+                    const pathLength = path.getTotalLength();
+                    path.style.strokeDasharray = pathLength;
+                    path.style.strokeDashoffset = pathLength;
+                }
+            });
+        };
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            createGoldParticles();
+            animateSvgPaths();
+            
+            // Initial check for elements in view
+            setTimeout(() => {
+                animateOnScroll();
+            }, 100);
+        });
+        
+        // Check for elements to animate on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Stagger animation for craft items
+        const craftItems = document.querySelectorAll('.craft-item');
+        craftItems.forEach((item, index) => {
+            item.style.animationDelay = `${0.2 * index}s`;
+        });
+        
+        // Stagger animation for gallery items
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach((item, index) => {
+            item.style.animationDelay = `${0.15 * index}s`;
+        });
+        
+        // Text scramble effect for hero heading
+        class TextScramble {
+            constructor(el) {
+                this.el = el;
+                this.chars = '!<>-_\\/[]{}—=+*^?#_________';
+                this.update = this.update.bind(this);
+            }
+            
+            setText(newText) {
+                const oldText = this.el.innerText;
+                const length = Math.max(oldText.length, newText.length);
+                const promise = new Promise(resolve => this.resolve = resolve);
+                this.queue = [];
+                
+                for (let i = 0; i < length; i++) {
+                    const from = oldText[i] || '';
+                    const to = newText[i] || '';
+                    const start = Math.floor(Math.random() * 40);
+                    const end = start + Math.floor(Math.random() * 40);
+                    this.queue.push({ from, to, start, end });
+                }
+                
+                cancelAnimationFrame(this.frameRequest);
+                this.frame = 0;
+                this.update();
+                return promise;
+            }
+            
+            update() {
+                let output = '';
+                let complete = 0;
+                
+                for (let i = 0, n = this.queue.length; i < n; i++) {
+                    let { from, to, start, end, char } = this.queue[i];
+                    
+                    if (this.frame >= end) {
+                        complete++;
+                        output += to;
+                    } else if (this.frame >= start) {
+                        if (!char || Math.random() < 0.28) {
+                            char = this.randomChar();
+                            this.queue[i].char = char;
+                        }
+                        output += `<span class="dud">${char}</span>`;
+                    } else {
+                        output += from;
+                    }
+                }
+                
+                this.el.innerHTML = output;
+                
+                if (complete === this.queue.length) {
+                    this.resolve();
+                } else {
+                    this.frameRequest = requestAnimationFrame(this.update);
+                    this.frame++;
+                }
+            }
+            
+            randomChar() {
+                return this.chars[Math.floor(Math.random() * this.chars.length)];
+            }
+        }
+        
+        // Apply text scramble effect
+        setTimeout(() => {
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                const fx = new TextScramble(heroTitle);
+                fx.setText(heroTitle.textContent);
+            }
+        }, 1000);
+    </script>
+    
+    <style>
+        /* Additional styles for scramble effect */
+        .dud {
+            color: var(--primary-color);
+        }
+    </style>
+</body>
+</html>
