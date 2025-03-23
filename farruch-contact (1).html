@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FARRUCH EXPORTS - Contact Us</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #c9a875;
+            --dark-color: #1a1a1a;
+            --light-color: #f8f5f0;
+            --accent-color: #8a6d3b;
+            --text-color: #333;
+            --deep-blue: #2c3e50;
+            --gold: #d4af37;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes shimmer {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+            100% { opacity: 0.3; }
+        }
+        
+        @keyframes widthExpand {
+            from { width: 0; }
+            to { width: 120px; }
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes borderPulse {
+            0% { border-color: var(--primary-color); }
+            50% { border-color: var(--accent-color); }
+            100% { border-color: var(--primary-color); }
+        }
+        
+        @keyframes mapDotPulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.5); opacity: 0.3; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-on-scroll.fade-in {
+            animation: fadeIn 1s forwards;
+        }
+        
+        .animate-on-scroll.slide-in-left {
+            animation: slideInLeft 1s forwards;
+        }
+        
+        .animate-on-scroll.slide-in-right {
+            animation: slideInRight 1s forwards;
+        }
+        
+        .animate-on-scroll.scale-in {
+            animation: scaleIn 1s forwards;
+        }
+        
+        .visible {
+            opacity: 1;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--dark-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            transition: all 0.4s ease;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            cursor: pointer;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .btn:hover::before {
+            left: 0;
+        }
+        
+        .btn::after {
+            content: "→";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover::after {
+            opacity: 1;
+            right: 15px;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: rgba(248, 245, 240, 0.95);
+        }
+        
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            letter-spacing: 5px;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 300;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: 'EXPORTS';
+            position: absolute;
+            font-size: 12px;
+            letter-spacing: 3px;
+            right: 0;
+            bottom: -10px;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 40px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            position: relative;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+        
+        .nav-links a::before,
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            background-color: var(--primary-color);
+            transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .nav-links a::before {
+            left: 0;
+        }
+        
+        .nav-links a::after {
+            right: 0;
+            transition-delay: 0.1s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a:hover::before,
+        .nav-links a:hover::after {
+            width: 50%;
+        }
+        
+        /* Page Banner */
+        .page-banner {
+            height: 50vh;
+            min-height: 400px;
+            background-color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        
+        .page-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(201, 168, 117, 0.05) 0%, rgba(248, 245, 240, 0) 70%);
+            z-index: 1;
+            animation: shimmer 6s infinite ease-in-out;
+        }
+        
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .banner-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.3s;
+        }
+        
+        .banner-content h1::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 1px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+            animation: widthExpand 1.5s forwards 1.5s;
+        }
+        
+        .banner-content p {
+            font-size: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.6s;
+        }
+        
+        /* Contact Main Section */
+        .contact-main {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            align-items: start;
+        }
+        
+        .contact-info h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .contact-info h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 1px;
+            background-color: var(--primary-color);
+        }
+        
+        .contact-details {
+            margin-top: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            margin-right: 20px;
+            color: var(--primary-color);
+            font-size: 24px;
+            min-width: 24px;
+            text-align: center;
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 5px;
+        }
+        
+        .contact-form {
+            background-color: var(--light-color);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-heading {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(201, 168, 117, 0.2);
+            background-color: white;
+            font-family: inherit;
+            font-size: 16px;
+            border-radius: 3px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(201, 168, 117, 0.1);
+        }
+        
+        .form-control:hover:not(:focus) {
+            border-color: rgba(201, 168, 117, 0.5);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-label {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            pointer-events: none;
+            transition: 0.3s ease all;
+            font-size: 16px;
+            color: rgba(51, 51, 51, 0.6);
+        }
+        
+        .form-control:focus ~ .form-label,
+        .form-control:not(:placeholder-shown) ~ .form-label {
+            top: -10px;
+            left: 10px;
+            font-size: 12px;
+            color: var(--primary-color);
+            background-color: white;
+            padding: 0 5px;
+        }
+        
+        .form-message {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 3px;
+            text-align: center;
+        }
+        
+        .form-message.success {
+            background-color: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            color: #2e7d32;
+        }
+        
+        .form-message.error {
+            background-color: rgba(244, 67, 54, 0.1);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+            color: #c62828;
+        }
+        
+        /* Global Offices */
+        .global-offices {
+            padding: 80px 0;
+            background-color: var(--light-color);
+            position: relative;
+        }
+        
+        .global-offices::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(201, 168, 117, 0.03) 0px,
+                rgba(201, 168, 117, 0.03) 1px,
+                transparent 1px,
+                transparent 20px
+            );
+            z-index: 0;
+        }
+        
+        .offices-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .world-map {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .map-container {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .faq-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid rgba(201, 168, 117, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .faq-item.animate {
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        .faq-item:hover {
+            animation: borderPulse 2s infinite;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background-color: var(--light-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        
+        .faq-question:hover {
+            background-color: rgba(201, 168, 117, 0.05);
+        }
+        
+        .faq-question::after {
+            content: "+";
+            font-size: 24px;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 1000px;
+        }
+        
+        /* Call to Action */
+        .cta-section {
+            padding: 100px 0;
+            background-color: var(--light-color);
+            text-align: center;
+            position: relative;
+        }
+        
+        .cta-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(201, 168, 117, 0.05) 0%, rgba(248, 245, 240, 0) 70%);
+            z-index: 0;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-content h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 60px 0 30px;
+            background-color: var(--dark-color);
+            color: white;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            letter-spacing: 3px;
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .footer-logo::after {
+            content: 'EXPORTS';
+            position: absolute;
+            font-size: 10px;
+            letter-spacing: 2px;
+            right: 0;
+            bottom: -8px;
+            color: var(--primary-color);
+        }
+        
+        .footer-links h4 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-links h4::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 30px;
+            height: 1px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            padding-left: 0;
+            transition: padding-left 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .banner-content h1 {
+                font-size: 36px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">FARRUCH</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="banner-content">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our team of luxury import-export specialists to discuss your requirements.</p>
+        </div>
+    </section>
+
+    <!-- Contact Main Section -->
+    <section class="contact-main">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>How Can We Assist You?</h2>
+                    <p>Whether you're seeking information about our luxury import-export services, require assistance with a specific product, or wish to discuss a potential collaboration, our team is ready to provide personalized attention to your inquiries.</p>
+                    <p>We offer comprehensive consultations to understand your unique requirements and develop tailored solutions that meet the highest standards of quality and service.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">✧</div>
+                            <div>
+                                <h3>Headquarters</h3>
+                                <p>Farruch Exports<br>Gold & Diamond Park, Unit 12<br>Sheikh Zayed Road<br>Dubai, United Arab Emirates</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✧</div>
+                            <div>
+                                <h3>Global Offices</h3>
+                                <p>Paris • Milan • New York • Bangalore</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✧</div>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>+971 4 555 7890 (Dubai Headquarters)<br>+91 9886297409 (Bangalore Office)</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✧</div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>General Inquiries: <a href="mailto:info@farruch.co">info@farruch.co</a><br>
+                                Client Services: <a href="mailto:clientservices@farruch.co">clientservices@farruch.co</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✧</div>
+                            <div>
+                                <h3>Business Hours</h3>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM (Local Time)<br>
+                                Saturday: 10:00 AM - 2:00 PM (By Appointment)<br>
+                                Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <div class="form-heading">
+                        <h3>Send Us a Message</h3>
+                        <p>Complete the form below, and one of our specialists will contact you shortly.</p>
+                    </div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder=" " required>
+                            <label for="name" class="form-label">Full Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder=" " required>
+                            <label for="email" class="form-label">Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" id="phone" placeholder=" ">
+                            <label for="phone" class="form-label">Phone Number</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="company" placeholder=" ">
+                            <label for="company" class="form-label">Company/Organization</label>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="inquiry" required>
+                                <option value="" disabled selected>Select Inquiry Type</option>
+                                <option value="import">Luxury Importing</option>
+                                <option value="export">Export Solutions</option>
+                                <option value="customs">Customs & Compliance</option>
+                                <option value="consultation">Private Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" rows="5" placeholder=" " required></textarea>
+                            <label for="message" class="form-label">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn" id="submitBtn">Submit Inquiry</button>
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Offices -->
+    <section class="global-offices">
+        <div class="container">
+            <div class="offices-intro">
+                <h2>Our Global Presence</h2>
+                <p>Farruch Exports maintains offices in key luxury markets around the world, ensuring personalized service and local expertise for our international clients.</p>
+            </div>
+            <div class="world-map">
+                <div class="map-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="100%" height="100%">
+                        <defs>
+                            <filter id="map-glow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="2" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                            <radialGradient id="location-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                                <stop offset="0%" style="stop-color:#c9a875; stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#c9a875; stop-opacity:0" />
+                            </radialGradient>
+                        </defs>
+                        
+                        <!-- Simplified world map outline -->
+                        <path d="M150,250 Q180,220 210,210 Q240,200 270,210 Q300,220 330,200 Q360,180 390,190 Q420,200 450,190 Q480,180 510,190 Q540,200 570,220 Q600,240 630,230 Q660,220 690,230 Q720,240 750,220 Q780,200 810,210 Q840,220 870,200" fill="none" stroke="#c9a875" stroke-width="1" opacity="0.5" />
+                        
+                        <path d="M150,270 Q180,290 210,280 Q240,270 270,280 Q300,290 330,270 Q360,250 390,260 Q420,270 450,260 Q480,250 510,260 Q540,270 570,290 Q600,310 630,300 Q660,290 690,300 Q720,310 750,290 Q780,270 810,280 Q840,290 870,270" fill="none" stroke="#c9a875" stroke-width="1" opacity="0.5" />
+                        
+                        <!-- Location: Dubai (Headquarters) -->
+                        <circle cx="590" cy="250" r="8" fill="#c9a875" class="map-dot">
+                            <animate attributeName="r" values="8;12;8" dur="3s" repeatCount="indefinite" />
+                        </circle>
+                        <circle cx="590" cy="250" r="20" fill="url(#location-gradient)" opacity="0.3">
+                            <animate attributeName="r" values="20;30;20" dur="3s" repeatCount="indefinite" />
+                        </circle>
+                        <text x="590" y="235" font-family="serif" font-size="12" text-anchor="middle" fill="#1a1a1a" filter="url(#map-glow)">Dubai</text>
+                        <text x="590" y="270" font-family="serif" font-size="10" text-anchor="middle" fill="#8a6d3b">(Headquarters)</text>
+                        
+                        <!-- Location: Paris -->
+                        <circle cx="480" cy="200" r="6" fill="#c9a875" class="map-dot">
+                            <animate attributeName="r" values="6;9;6" dur="3s" repeatCount="indefinite" begin="0.5s" />
+                        </circle>
+                        <circle cx="480" cy="200" r="15" fill="url(#location-gradient)" opacity="0.3">
+                            <animate attributeName="r" values="15;25;15" dur="3s" repeatCount="indefinite" begin="0.5s" />
+                        </circle>
+                        <text x="480" y="185" font-family="serif" font-size="12" text-anchor="middle" fill="#1a1a1a">Paris</text>
+                        
+                        <!-- Location: Milan -->
+                        <circle cx="500" cy="210" r="6" fill="#c9a875" class="map-dot">
+                            <animate attributeName="r" values="6;9;6" dur="3s" repeatCount="indefinite" begin="1s" />
+                        </circle>
+                        <circle cx="500" cy="210" r="15" fill="url(#location-gradient)" opacity="0.3">
+                            <animate attributeName="r" values="15;25;15" dur="3s" repeatCount="indefinite" begin="1s" />
+                        </circle>
+                        <text x="500" y="195" font-family="serif" font-size="12" text-anchor="middle" fill="#1a1a1a">Milan</text>
+                        
+                        <!-- Location: New York -->
+                        <circle cx="300" cy="220" r="6" fill="#c9a875" class="map-dot">
+                            <animate attributeName="r" values="6;9;6" dur="3s" repeatCount="indefinite" begin="1.5s" />
+                        </circle>
+                        <circle cx="300" cy="220" r="15" fill="url(#location-gradient)" opacity="0.3">
+                            <animate attributeName="r" values="15;25;15" dur="3s" repeatCount="indefinite" begin="1.5s" />
+                        </circle>
+                        <text x="300" y="205" font-family="serif" font-size="12" text-anchor="middle" fill="#1a1a1a">New York</text>
+                        
+
+                        
+                        <!-- Location: Bangalore -->
+                        <circle cx="720" cy="290" r="6" fill="#c9a875" class="map-dot">
+                            <animate attributeName="r" values="6;9;6" dur="3s" repeatCount="indefinite" begin="2.5s" />
+                        </circle>
+                        <circle cx="720" cy="290" r="15" fill="url(#location-gradient)" opacity="0.3">
+                            <animate attributeName="r" values="15;25;15" dur="3s" repeatCount="indefinite" begin="2.5s" />
+                        </circle>
+                        <text x="720" y="275" font-family="serif" font-size="12" text-anchor="middle" fill="#1a1a1a">Bangalore</text>
+                        
+                        <!-- Connection lines -->
+                        <path d="M590,250 L480,200" stroke="#c9a875" stroke-width="1" opacity="0.3" stroke-dasharray="5,3" />
+                        <path d="M590,250 L500,210" stroke="#c9a875" stroke-width="1" opacity="0.3" stroke-dasharray="5,3" />
+                        <path d="M590,250 L300,220" stroke="#c9a875" stroke-width="1" opacity="0.3" stroke-dasharray="5,3" />
+
+                        <path d="M590,250 L720,290" stroke="#c9a875" stroke-width="1" opacity="0.3" stroke-dasharray="5,3" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-intro">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our luxury import and export services.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What types of luxury products do you import and export?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Farruch Exports specializes in a wide range of luxury products, including fine jewelry and gemstones, luxury textiles and fabrics, artisanal leather goods, crystal and decorative arts, luxury timepieces, rare collectibles, and other high-end items. We work with prestigious manufacturers, artisans, and luxury houses across the globe to source exceptional products for our discerning clients.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do you ensure the authenticity of luxury products?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We maintain rigorous authentication protocols for all products we handle. Our team of specialists with expertise in specific luxury categories conducts thorough examinations of each item. Additionally, we work directly with authorized manufacturers and artisans, maintain detailed documentation of provenance, and employ advanced authentication technologies when necessary. Every product is accompanied by appropriate certificates of authenticity and detailed documentation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What import/export services do you provide?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our comprehensive services include product sourcing and procurement, customs clearance and documentation, regulatory compliance management, logistics coordination for secure transportation, market research and strategy development for exporters, distribution network access, and private consultation for unique requirements. We handle all aspects of the import/export process to ensure a seamless experience for our clients.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do you handle customs and compliance requirements?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our customs specialists maintain up-to-date knowledge of international trade regulations and luxury goods-specific requirements in all major markets. We prepare and process all necessary documentation, manage duties and taxes, obtain required permits and licenses, and ensure compliance with all applicable regulations. Our expertise in navigating complex customs procedures helps prevent delays and compliance issues for high-value luxury items.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can you source specific luxury items based on client requirements?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our private consultation service specializes in sourcing specific luxury items based on detailed client requirements. Through our extensive global network of relationships with prestigious makers, we can access rare, limited edition, and exclusive items that may not be available through conventional channels. We also arrange bespoke commissions with renowned artisans and luxury houses for truly unique pieces.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What security measures do you implement for transporting valuable items?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We implement comprehensive security measures including specialized handling protocols for high-value items, secure packaging with tamper-evident seals, trusted transportation partners with experience in luxury goods, discrete routing with minimal transfer points, real-time tracking systems, and comprehensive insurance coverage. Our approach ensures that valuable items are transported with the highest level of security and care from origin to destination.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Begin a Conversation?</h2>
+                <p>Contact our team today to discuss your luxury import and export requirements. We look forward to providing personalized solutions that meet your specific needs.</p>
+                <a href="#" class="btn" id="scrollToContact">Contact Us Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <span class="footer-logo">FARRUCH</span>
+                    <p>Premier luxury import & export company connecting exceptional products with discerning clients worldwide since 1994.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">F</a>
+                        <a href="#" class="social-link">T</a>
+                        <a href="#" class="social-link">I</a>
+                        <a href="#" class="social-link">L</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html#importing">Luxury Importing</a></li>
+                        <li><a href="services.html#exporting">Export Solutions</a></li>
+                        <li><a href="services.html#customs">Customs Clearance</a></li>
+                        <li><a href="services.html#consultation">Private Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 1994 Farruch Exports. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Scroll to contact form
+        document.getElementById('scrollToContact').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('.contact-main').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentNode;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // If clicked item wasn't already active, open it
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const messageElement = document.getElementById('formMessage');
+            messageElement.classList.remove('success', 'error');
+            messageElement.style.display = 'none';
+            
+            // In a real implementation, this would involve server-side validation and processing
+            // For this demonstration, we'll simulate a successful submission
+            
+            const submitButton = document.getElementById('submitBtn');
+            submitButton.disabled = true;
+            submitButton.innerText = 'Sending...';
+            
+            // Simulate server request
+            setTimeout(() => {
+                messageElement.textContent = 'Your inquiry has been submitted successfully. One of our specialists will contact you shortly.';
+                messageElement.classList.add('success');
+                messageElement.style.display = 'block';
+                
+                submitButton.disabled = false;
+                submitButton.innerText = 'Submit Inquiry';
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+            }, 1500);
+        });
+        
+        // Scroll animations for FAQ items
+        const animateOnScroll = () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach((item, index) => {
+                const itemPosition = item.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (itemPosition < windowHeight * 0.85) {
+                    // Add delay based on index
+                    setTimeout(() => {
+                        item.classList.add('animate');
+                    }, index * 150);
+                }
+            });
+        };
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            // Initial check for elements in view
+            setTimeout(() => {
+                animateOnScroll();
+            }, 100);
+        });
+        
+        // Check for elements to animate on scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
