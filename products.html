@@ -817,6 +817,37 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* Hide all SVG placeholders */
+        .category-bg svg,
+        .product-image svg,
+        .collections-image svg {
+            display: none !important;
+        }
+        
+        /* Add background image to hero */
+        .hero-section {
+            background-image: url('https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=1600&h=600&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Make images visible */
+        .category-bg,
+        .product-image {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-bg img,
+        .product-image img {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
@@ -854,7 +885,8 @@
             <div class="categories-grid">
                 <div class="category-item">
                     <div class="category-bg">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=300&fit=crop" alt="Fine Jewelry & Gemstones" style="width: 100%; height: 100%; object-fit: cover;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%" style="display: none;">
                             <rect width="100%" height="100%" fill="#e5dcd0" />
                             <circle cx="150" cy="150" r="80" fill="#f8f5f0" />
                             <path d="M120,120 L180,120 L180,180 L120,180 Z" fill="none" stroke="#c9a875" stroke-width="2" />
@@ -870,7 +902,8 @@
                 
                 <div class="category-item">
                     <div class="category-bg">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+                        <img src="https://images.unsplash.com/photo-1600298881974-6be191ceeda1?w=300&h=300&fit=crop" alt="Luxury Textiles & Fabrics" style="width: 100%; height: 100%; object-fit: cover;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%" style="display: none;">
                             <rect width="100%" height="100%" fill="#e5dcd0" />
                             <rect x="80" y="80" width="140" height="140" fill="#f8f5f0" />
                             <path d="M80,80 L220,80 L220,220 L80,220 Z" fill="none" stroke="#c9a875" stroke-width="2" />
@@ -886,7 +919,8 @@
                 
                 <div class="category-item">
                     <div class="category-bg">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+                        <img src="https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=300&h=300&fit=crop" alt="Artisanal Leather Goods" style="width: 100%; height: 100%; object-fit: cover;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%" style="display: none;">
                             <rect width="100%" height="100%" fill="#e5dcd0" />
                             <path d="M120,100 L180,100 L200,200 L100,200 Z" fill="#f8f5f0" />
                             <path d="M120,100 L180,100 L200,200 L100,200 Z" fill="none" stroke="#c9a875" stroke-width="2" />
@@ -903,7 +937,8 @@
                 
                 <div class="category-item">
                     <div class="category-bg">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+                        <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?w=300&h=300&fit=crop" alt="Decorative Arts & Crystal" style="width: 100%; height: 100%; object-fit: cover;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%" style="display: none;">
                             <rect width="100%" height="100%" fill="#e5dcd0" />
                             <path d="M110,110 Q150,70 190,110 Q230,150 190,190 Q150,230 110,190 Q70,150 110,110" fill="#f8f5f0" />
                             <path d="M110,110 Q150,70 190,110 Q230,150 190,190 Q150,230 110,190 Q70,150 110,110" fill="none" stroke="#c9a875" stroke-width="2" />
@@ -919,7 +954,8 @@
                 
                 <div class="category-item">
                     <div class="category-bg">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+                        <img src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=300&h=300&fit=crop" alt="Luxury Timepieces" style="width: 100%; height: 100%; object-fit: cover;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%" style="display: none;">
                             <rect width="100%" height="100%" fill="#e5dcd0" />
                             <circle cx="150" cy="150" r="80" fill="#f8f5f0" />
                             <path d="M140,120 L160,120 L160,150 L180,150 L180,170 L120,170 L120,150 L140,150 Z" fill="#e5dcd0" stroke="#c9a875" stroke-width="2" />
@@ -934,7 +970,8 @@
                 
                 <div class="category-item">
                     <div class="category-bg">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+                        <img src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=300&h=300&fit=crop" alt="Rare Collectibles" style="width: 100%; height: 100%; object-fit: cover;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%" style="display: none;">
                             <rect width="100%" height="100%" fill="#e5dcd0" />
                             <rect x="90" y="90" width="120" height="120" rx="5" fill="#f8f5f0" />
                             <rect x="90" y="90" width="120" height="120" rx="5" fill="none" stroke="#c9a875" stroke-width="2" />
@@ -961,7 +998,8 @@
             <div class="featured-grid">
                 <div class="product-card">
                     <div class="product-image">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=300&fit=crop" alt="Diamond Parure Collection" style="width: 100%; height: 100%; object-fit: cover;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%" style="display: none;">
                             <rect width="100%" height="100%" fill="#e5dcd0" />
                             <circle cx="150" cy="125" r="60" fill="#f8f5f0" />
                             <path d="M120,100 L180,100 L180,150 L120,150 Z" fill="none" stroke="#c9a875" stroke-width="2" />
@@ -980,7 +1018,8 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%">
+                        <img src="https://images.unsplash.com/photo-1600298881974-6be191ceeda1?w=300&h=300&fit=crop" alt="Vicuña Cashmere Blend" style="width: 100%; height: 100%; object-fit: cover;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%" style="display: none;">
                             <rect width="100%" height="100%" fill="#e5dcd0" />
                             <rect x="80" y="70" width="140" height="110" fill="#f8f5f0" />
                             <path d="M80,70 L220,70 L220,180 L80,180 Z" fill="none" stroke="#c9a875" stroke-width="2" />
@@ -999,7 +1038,8 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%">
+                        <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?w=300&h=300&fit=crop" alt="Bohemian Crystal Decanter Set" style="width: 100%; height: 100%; object-fit: cover;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%" style="display: none;">
                             <rect width="100%" height="100%" fill="#e5dcd0" />
                             <path d="M100,100 Q150,50 200,100 Q250,150 200,200 Q150,250 100,200 Q50,150 100,100" fill="#f8f5f0" />
                             <path d="M100,100 Q150,50 200,100 Q250,150 200,200 Q150,250 100,200 Q50,150 100,100" fill="none" stroke="#c9a875" stroke-width="2" />
@@ -1018,7 +1058,8 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%">
+                        <img src="https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=300&h=300&fit=crop" alt="Artisanal Leather Briefcase" style="width: 100%; height: 100%; object-fit: cover;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%" style="display: none;">
                             <rect width="100%" height="100%" fill="#e5dcd0" />
                             <path d="M120,80 L180,80 L200,150 L100,150 Z" fill="#f8f5f0" />
                             <path d="M120,80 L180,80 L200,150 L100,150 Z" fill="none" stroke="#c9a875" stroke-width="2" />
@@ -1038,7 +1079,8 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%">
+                        <img src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=300&h=300&fit=crop" alt="Grand Complication Timepiece" style="width: 100%; height: 100%; object-fit: cover;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%" style="display: none;">
                             <rect width="100%" height="100%" fill="#e5dcd0" />
                             <circle cx="150" cy="120" r="70" fill="#f8f5f0" />
                             <path d="M140,90 L160,90 L160,120 L180,120 L180,140 L120,140 L120,120 L140,120 Z" fill="#e5dcd0" stroke="#c9a875" stroke-width="2" />
@@ -1056,7 +1098,8 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%">
+                        <img src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=300&h=300&fit=crop" alt="First Edition Rare Book Collection" style="width: 100%; height: 100%; object-fit: cover;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%" style="display: none;">
                             <rect width="100%" height="100%" fill="#e5dcd0" />
                             <rect x="90" y="80" width="120" height="90" rx="5" fill="#f8f5f0" />
                             <rect x="90" y="80" width="120" height="90" rx="5" fill="none" stroke="#c9a875" stroke-width="2" />
