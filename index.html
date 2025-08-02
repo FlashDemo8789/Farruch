@@ -365,9 +365,6 @@
             width: 50%;
             height: 100%;
             background-color: #e5dcd0;
-            background-image: url('https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=800&h=1000&fit=crop');
-            background-size: cover;
-            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -462,9 +459,6 @@
         
         .about-img {
             background-color: #e5dcd0;
-            background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=500&fit=crop');
-            background-size: cover;
-            background-position: center;
             height: 500px;
             display: flex;
             justify-content: center;
@@ -476,13 +470,10 @@
         }
         
         .about-img img {
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         
         /* Products Section */
@@ -595,12 +586,10 @@
         }
         
         .product-image img {
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         
         .product-info {
@@ -969,13 +958,10 @@
         }
         
         .story-image img {
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         
         .story-info {
@@ -1168,6 +1154,40 @@
         .story-image svg,
         .client-image svg {
             display: none !important;
+        }
+        
+        /* Fix overlapping issues */
+        .hero-img {
+            z-index: 1;
+        }
+        
+        .hero-content {
+            z-index: 2;
+        }
+        
+        /* Ensure proper stacking */
+        section {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Fix testimonial client image */
+        .client-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Prevent form elements from overlapping */
+        .contact-form {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Fix world map positioning */
+        .world-map {
+            height: 400px;
         }
     </style>
 </head>
@@ -1431,8 +1451,9 @@
                     <h2>Global Presence</h2>
                     <p>Strategic locations connecting luxury producers with discerning markets worldwide</p>
                 </div>
-                <div class="world-map" style="background-image: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800&h=400&fit=crop'); background-size: cover; background-position: center; position: relative;">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+                <div class="world-map" style="position: relative;">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop" alt="Global Luxury Trade Network" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 0; opacity: 0.3;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%" style="position: relative; z-index: 1;">
                         <defs>
                             <filter id="map-glow" x="-50%" y="-50%" width="200%" height="200%">
                                 <feGaussianBlur stdDeviation="1" result="blur" />
@@ -1511,7 +1532,6 @@
                             <animate attributeName="stroke-dashoffset" from="100" to="0" dur="10s" repeatCount="indefinite" begin="3s" />
                         </path>
                     </svg>
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop" alt="Global Luxury Trade Network" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 0; opacity: 0.3;">
                 </div>
                 <p>Farruch Exports maintains offices and distribution centers in key luxury markets across Europe, North America, Middle East, and Asia. Our strategic presence allows us to efficiently navigate local regulations, customs requirements, and market preferences, ensuring a seamless experience for our clients worldwide.</p>
             </div>
@@ -1535,7 +1555,6 @@
                             <circle cx="150" cy="100" r="30" fill="none" stroke="#c9a875" stroke-width="2" />
                             <text x="150" y="160" font-family="serif" font-size="12" text-anchor="middle" fill="#1a1a1a">LUXURY RETAIL</text>
                         </svg>
-                        <img src="https://images.unsplash.com/photo-1570179538662-faa5e38e9d8f?w=300&h=200&fit=crop" alt="Luxury Retail" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
                     </div>
                     <div class="story-info">
                         <span class="story-category">LUXURY RETAIL</span>
@@ -1563,12 +1582,12 @@
                 
                 <div class="story-card">
                     <div class="story-image">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="100%" height="100%">
+                        <img src="https://images.unsplash.com/photo-1488998527040-85054a85150e?w=300&h=200&fit=crop" alt="Global Market Expansion" style="width: 100%; height: 100%; object-fit: cover;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="100%" height="100%" style="display: none;">
                             <rect width="100%" height="100%" fill="#e5dcd0" />
                             <path d="M100,100 Q150,50 200,100 Q250,150 200,150 Q150,200 100,150 Q50,100 100,100" fill="#f8f5f0" stroke="#c9a875" stroke-width="1" />
                             <text x="150" y="160" font-family="serif" font-size="12" text-anchor="middle" fill="#1a1a1a">MARKET EXPANSION</text>
                         </svg>
-                        <img src="https://images.unsplash.com/photo-1488998527040-85054a85150e?w=300&h=200&fit=crop" alt="Global Market Expansion" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
                     </div>
                     <div class="story-info">
                         <span class="story-category">MARKET EXPANSION</span>
