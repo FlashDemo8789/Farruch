@@ -384,7 +384,6 @@
         .hero-img svg {
             animation: scaleIn 1.5s forwards 0.5s;
             opacity: 0;
-            display: none;
         }
         
         .hero-img path, .hero-img rect:nth-of-type(2) {
@@ -1162,6 +1161,14 @@
             height: auto;
             display: block;
         }
+        
+        /* Hide SVGs except hero */
+        .about-img svg,
+        .product-image svg,
+        .story-image svg,
+        .client-image svg {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -1192,8 +1199,7 @@
             </div>
         </div>
         <div class="hero-img">
-            <img src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=800&h=1000&fit=crop" alt="Luxury Global Trade - Premium Service" style="width: 100%; height: 100%; object-fit: cover;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%" style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
                 <defs>
                     <pattern id="gold-pattern" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="rotate(45)">
                         <line x1="0" y1="0" x2="0" y2="20" stroke="#c9a875" stroke-width="1" />
