@@ -734,6 +734,15 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
+        /* Hide SVGs when images are present */
+        .story-image svg {
+            display: none !important;
+        }
+        
+        .client-image svg {
+            display: none !important;
+        }
+        
         /* Responsive */
         @media (max-width: 992px) {
             .story-container {
@@ -831,11 +840,7 @@
                     <p>Our comprehensive services included authentication of each piece, management of all import documentation and customs clearance, and secure logistics to ensure flawless delivery. The result was a 40% increase in Maison Lumière's high-value clientele and recognition as one of Asia's most distinguished luxury boutiques.</p>
                     <div class="story-meta">
                         <div class="client-image">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="100%" height="100%">
-                                <rect width="100%" height="100%" fill="#e5dcd0" />
-                                <circle cx="30" cy="25" r="12" fill="#c9a875" />
-                                <path d="M15,45 Q30,35 45,45" fill="#c9a875" />
-                            </svg>
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=60&h=60&fit=crop" alt="Isabella Chen" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
                         </div>
                         <div class="client-info">
                             <h4 class="client-name">Isabella Chen</h4>
@@ -844,37 +849,7 @@
                     </div>
                 </div>
                 <div class="story-image">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
-                        <defs>
-                            <filter id="story-blur" x="-50%" y="-50%" width="200%" height="200%">
-                                <feGaussianBlur stdDeviation="2" result="blur" />
-                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                            </filter>
-                            <linearGradient id="story-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#d9c6a3" />
-                                <stop offset="50%" style="stop-color:#c9a875" />
-                                <stop offset="100%" style="stop-color:#8a6d3b" />
-                            </linearGradient>
-                        </defs>
-                        
-                        <!-- Background -->
-                        <rect width="100%" height="100%" fill="#e5dcd0">
-                            <animate attributeName="opacity" values="1;0.8;1" dur="8s" repeatCount="indefinite" />
-                        </rect>
-                        
-                        <!-- Boutique illustration -->
-                        <rect x="150" y="150" width="200" height="200" rx="5" fill="#f8f5f0" stroke="#8a6d3b" stroke-width="1" />
-                        
-                        <!-- Display window -->
-                        <rect x="170" y="170" width="160" height="160" rx="3" fill="none" stroke="#c9a875" stroke-width="1" />
-                        
-                        <!-- Luxury items on display -->
-                        <circle cx="200" cy="230" r="20" fill="url(#story-gradient)" opacity="0.7" />
-                        <rect x="240" cy="210" width="40" height="40" fill="url(#story-gradient)" opacity="0.7" />
-                        <path d="M200,280 L240,280 L220,320 Z" fill="url(#story-gradient)" opacity="0.7" />
-                        
-                        <text x="250" y="400" font-family="serif" font-size="16" text-anchor="middle" fill="#1a1a1a" filter="url(#story-blur)">MAISON LUMIÈRE</text>
-                    </svg>
+                    <img src="https://images.unsplash.com/photo-1726128449240-6569b63355d2?w=500&h=500&fit=crop" alt="Maison Lumière Boutique Interior" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -892,11 +867,7 @@
                     <p>Over three years, we helped Mr. Reynolds acquire fifteen exceptional timepieces, including limited-edition masterpieces and vintage rarities from the world's most prestigious watchmakers. Each acquisition was accompanied by comprehensive documentation and authentication certificates, ensuring the integrity and value of his collection.</p>
                     <div class="story-meta">
                         <div class="client-image">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="100%" height="100%">
-                                <rect width="100%" height="100%" fill="#e5dcd0" />
-                                <circle cx="30" cy="25" r="12" fill="#c9a875" />
-                                <path d="M15,45 Q30,35 45,45" fill="#c9a875" />
-                            </svg>
+                            <img src="https://images.unsplash.com/photo-1576558656222-ba66febe3dec?w=60&h=60&fit=crop" alt="Marcus Reynolds" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
                         </div>
                         <div class="client-info">
                             <h4 class="client-name">Marcus Reynolds</h4>
@@ -957,6 +928,7 @@
                         
                         <text x="250" y="400" font-family="serif" font-size="16" text-anchor="middle" fill="#1a1a1a" filter="url(#timepiece-blur)">RARE TIMEPIECE COLLECTION</text>
                     </svg>
+                    <img src="https://images.unsplash.com/photo-1730757679771-b53e798846cf?w=500&h=500&fit=crop" alt="Luxury Timepiece Collection" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
                 </div>
             </div>
         </div>
@@ -974,11 +946,7 @@
                     <p>Within 18 months, Atelier Lumière successfully established presence in five new international markets, increasing their revenue by 65% while maintaining their commitment to small-batch, artisanal production. Our ongoing logistics and compliance support has allowed them to focus on craftsmanship while we manage the complexities of international trade.</p>
                     <div class="story-meta">
                         <div class="client-image">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="100%" height="100%">
-                                <rect width="100%" height="100%" fill="#e5dcd0" />
-                                <circle cx="30" cy="25" r="12" fill="#c9a875" />
-                                <path d="M15,45 Q30,35 45,45" fill="#c9a875" />
-                            </svg>
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=60&h=60&fit=crop" alt="Sophia Moreau" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
                         </div>
                         <div class="client-info">
                             <h4 class="client-name">Sophia Moreau</h4>
@@ -1044,6 +1012,7 @@
                         
                         <text x="250" y="380" font-family="serif" font-size="16" text-anchor="middle" fill="#1a1a1a" filter="url(#export-blur)">GLOBAL MARKET EXPANSION</text>
                     </svg>
+                    <img src="https://images.unsplash.com/photo-1644258676710-ffb99d7d7a1b?w=500&h=500&fit=crop" alt="Atelier Lumière Leather Workshop" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
                 </div>
             </div>
         </div>
