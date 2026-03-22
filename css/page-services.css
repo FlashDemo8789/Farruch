@@ -11,7 +11,7 @@
 
 .service-card {
   padding: 2.5rem;
-  background: var(--bg-contrast);
+  background: var(--bg-alt);
   border: 1px solid var(--border);
   transition: transform var(--transition);
 }
