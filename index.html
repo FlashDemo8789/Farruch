@@ -7,40 +7,15 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap">
   <link rel="stylesheet" href="css/maison-farruch.css">
   <style>
-    /* Additions for Exporter Home - Pure Dark Luxe Aesthetic */
-    body {
-      background-color: var(--bg-dark);
-      color: #f8f5f0;
-    }
-    
+    /* Exporter Home Specifics */
     .hero-exporter {
-      background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), url('images/banner02.jpg') center/cover;
-    }
-    
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 3rem;
-      margin-top: 3rem;
-    }
-    
-    .product-item {
-      background: var(--bg-dark);
-      border: 1px solid rgba(255,255,255,0.1);
-      overflow: hidden;
-      position: relative;
-      transition: transform var(--transition), border-color var(--transition);
-      text-align: left;
-    }
-    
-    .product-item:hover {
-      transform: translateY(-8px);
-      border-color: var(--accent);
+      background: linear-gradient(rgba(10,10,10,0.5), rgba(10,10,10,0.8)), url('images/banner02.jpg') center/cover;
     }
     
     .product-image {
-      height: 400px;
+      height: 350px;
       overflow: hidden;
+      margin: -1.5rem -1.5rem 1.5rem -1.5rem;
       position: relative;
     }
 
@@ -51,47 +26,18 @@
       transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
-    .product-item:hover .product-image img {
+    .grid figure:hover .product-image img {
       transform: scale(1.05);
     }
     
-    .product-info {
-      padding: 2rem;
-    }
-    
-    .product-info h3 {
-      font-family: var(--serif);
-      font-size: 1.6rem;
-      margin-bottom: 0.8rem;
-    }
-    
-    .product-origin {
-      font-size: 0.8rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.15rem;
-      margin-bottom: 1.2rem;
-      display: inline-block;
-      border-bottom: 1px solid rgba(201,168,117,0.3);
-      padding-bottom: 0.3rem;
-    }
-
-    .product-info p {
-      color: rgba(255,255,255,0.7);
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-    
     .maison-portal {
-      background: #000;
+      background: #0e0e0e;
       color: #fff;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
       gap: 4rem;
       padding: 0;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     
     .maison-portal-text {
@@ -102,14 +48,6 @@
       height: 100%;
       min-height: 600px;
       background: url('images/banner03.jpg') center/cover;
-    }
-    
-    .contact-layout .contact-details ul li {
-        color: rgba(255,255,255,0.7);
-    }
-    
-    .contact-layout .contact-details ul li a {
-        color: #fff;
     }
     
     @media(max-width: 900px) {
@@ -143,88 +81,89 @@
     </nav>
     <div class="hero-content">
       <p class="eyebrow" style="color:var(--accent);">Farruch Exports</p>
-      <h1 style="color:#fff;">Exceptional Global Orchestration</h1>
-      <p class="lede" style="color:rgba(255,255,255,0.8);">Specializing in the seamless import and export of premium luxury products, connecting discerning clients with the world's most exclusive goods—and home to our own legendary haute couture embroidery ateliers.</p>
+      <h1>Exceptional Global Orchestration</h1>
+      <p class="lede">Specializing in the seamless import and export of premium luxury products, connecting discerning clients with the world's most exclusive goods—and home to our own legendary haute couture embroidery ateliers.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#products">Explore the Collection</a>
-        <a class="btn btn-ghost" href="services.html" style="border-color:rgba(255,255,255,0.3); color:#fff;">View Premium Services</a>
+        <a class="btn btn-ghost" href="services.html">View Premium Services</a>
       </div>
     </div>
     <div class="hero-overlay"></div>
   </header>
 
   <main>
-    <section id="products" class="section reveal" style="background-color:var(--bg-dark);">
+    <section id="products" class="section reveal">
       <div class="section-heading">
         <span class="eyebrow" style="color:var(--accent);">Luxury Collection</span>
-        <h2 style="color:#fff;">Sourced from prestige artisans</h2>
+        <h2>Sourced from prestige artisans</h2>
       </div>
-      <div class="product-grid">
-        <div class="product-item">
+      
+      <div class="grid">
+        <figure>
           <div class="product-image">
             <img src="images/luxury_jewelry_1774180208176.png" alt="Diamond and Sapphire High Jewelry">
           </div>
-          <div class="product-info">
+          <figcaption style="margin-top:0; border-bottom: 1px solid var(--border); padding-bottom:0.5rem; margin-bottom:1rem;">Paris, France</figcaption>
+          <aside style="border-top:none; padding-top:0;">
             <h3>Fine Jewelry</h3>
-            <p class="product-origin">Paris, France</p>
-            <p>Exquisite handcrafted pieces featuring the finest gemstones and precious metals, verified for absolute provenance and clarity.</p>
-          </div>
-        </div>
+            <p style="color:var(--muted); font-size:0.95rem;">Exquisite handcrafted pieces featuring the finest gemstones and precious metals, verified for absolute provenance and clarity.</p>
+          </aside>
+        </figure>
         
-        <div class="product-item">
+        <figure>
           <div class="product-image">
             <img src="images/luxury_textiles_1774180222423.png" alt="Emerald silk and gold brocade">
           </div>
-          <div class="product-info">
+          <figcaption style="margin-top:0; border-bottom: 1px solid var(--border); padding-bottom:0.5rem; margin-bottom:1rem;">Milan, Italy</figcaption>
+          <aside style="border-top:none; padding-top:0;">
             <h3>Luxury Textiles</h3>
-            <p class="product-origin">Milan, Italy</p>
-            <p>Premium fabrics including luscious emerald silk and specialty gold-woven brocade curated specifically for international haute couture maisons.</p>
-          </div>
-        </div>
+            <p style="color:var(--muted); font-size:0.95rem;">Premium fabrics including luscious emerald silk and specialty gold-woven brocade curated specifically for international haute couture maisons.</p>
+          </aside>
+        </figure>
         
-        <div class="product-item">
+        <figure>
           <div class="product-image">
             <img src="images/luxury_leather_1774180235744.png" alt="Handcrafted artisanal leather briefcase">
           </div>
-          <div class="product-info">
+          <figcaption style="margin-top:0; border-bottom: 1px solid var(--border); padding-bottom:0.5rem; margin-bottom:1rem;">Florence, Italy</figcaption>
+          <aside style="border-top:none; padding-top:0;">
             <h3>Artisanal Leather</h3>
-            <p class="product-origin">Florence, Italy</p>
-            <p>Meticulously hand-crafted leather goods produced using centuries-old techniques, handled with climate-controlled precision across borders.</p>
-          </div>
-        </div>
+            <p style="color:var(--muted); font-size:0.95rem;">Meticulously hand-crafted leather goods produced using centuries-old techniques, handled with climate-controlled precision across borders.</p>
+          </aside>
+        </figure>
         
-        <div class="product-item">
+        <figure>
           <div class="product-image">
             <img src="images/luxury_timepiece_1774180252618.png" alt="Swiss mechanical tourbillon watch">
           </div>
-          <div class="product-info">
+          <figcaption style="margin-top:0; border-bottom: 1px solid var(--border); padding-bottom:0.5rem; margin-bottom:1rem;">Geneva, Switzerland</figcaption>
+          <aside style="border-top:none; padding-top:0;">
             <h3>Luxury Timepieces</h3>
-            <p class="product-origin">Geneva, Switzerland</p>
-            <p>Precision mechanical tourbillons from the undisputed masters of horology, secured in our insured vault-to-vault logistics.</p>
-          </div>
-        </div>
+            <p style="color:var(--muted); font-size:0.95rem;">Precision mechanical tourbillons from the undisputed masters of horology, secured in our insured vault-to-vault logistics.</p>
+          </aside>
+        </figure>
         
-        <div class="product-item">
+        <figure>
           <div class="product-image">
             <img src="images/luxury_crystal_1774180271256.png" alt="Hand-cut crystal decanter">
           </div>
-          <div class="product-info">
+          <figcaption style="margin-top:0; border-bottom: 1px solid var(--border); padding-bottom:0.5rem; margin-bottom:1rem;">Prague, Czech Republic</figcaption>
+          <aside style="border-top:none; padding-top:0;">
             <h3>Crystal Artworks</h3>
-            <p class="product-origin">Prague, Czech Republic</p>
-            <p>Hand-cut crystal masterpieces showcasing dramatic refractions and geometric brilliance, transported tightly under white-glove watch.</p>
-          </div>
-        </div>
+            <p style="color:var(--muted); font-size:0.95rem;">Hand-cut crystal masterpieces showcasing dramatic refractions and geometric brilliance, transported tightly under white-glove watch.</p>
+          </aside>
+        </figure>
         
-        <div class="product-item">
+        <figure>
           <div class="product-image">
             <img src="images/luxury_collectibles_1774180291121.png" alt="Antiquarian gold astrolabe">
           </div>
-          <div class="product-info">
+          <figcaption style="margin-top:0; border-bottom: 1px solid var(--border); padding-bottom:0.5rem; margin-bottom:1rem;">Global Sourcing</figcaption>
+          <aside style="border-top:none; padding-top:0;">
             <h3>Rare Collectibles</h3>
-            <p class="product-origin">Global Sourcing</p>
-            <p>Priceless antiquities and one-of-a-kind artifacts sourced globally, individually authenticated prior to exclusive client deliveries.</p>
-          </div>
-        </div>
+            <p style="color:var(--muted); font-size:0.95rem;">Priceless antiquities and one-of-a-kind artifacts sourced globally, individually authenticated prior to exclusive client deliveries.</p>
+          </aside>
+        </figure>
       </div>
     </section>
 
@@ -239,41 +178,38 @@
       <div class="maison-portal-img" aria-label="Maison Farruch artisans"></div>
     </section>
 
-    <section id="contact" class="section contact reveal" style="background-color:var(--bg-dark);">
+    <section id="contact" class="section contact reveal">
       <div class="section-heading">
         <span class="eyebrow" style="color:var(--accent);">Connect</span>
-        <h2 style="color:#fff;">Global Inquiries</h2>
+        <h2>Global Inquiries</h2>
       </div>
-      <div class="contact-layout" style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:flex-start;">
+      <div class="contact-layout">
         <div class="contact-details">
-          <h3 style="color:#fff; font-family:var(--serif); font-size:1.5rem; margin-bottom:1rem; font-weight:400;">Distribution & Atelier Network</h3>
+          <h3 style="font-family:var(--serif); font-size:1.5rem; margin-bottom:1rem; font-weight:400;">Distribution & Atelier Network</h3>
           <ul style="list-style:none; padding:0; margin-bottom:2rem; line-height:2;">
-            <li><strong style="color:var(--accent);">Mumbai</strong> — <a href="mailto:admin@farruch.com">admin@farruch.com</a></li>
-            <li><strong style="color:var(--accent);">London</strong> — <a href="mailto:studio.london@farruch.com">studio.london@farruch.com</a></li>
-            <li><strong style="color:var(--accent);">Milan</strong> — <a href="mailto:office.italia@farruch.com">office.italia@farruch.com</a></li>
-            <li><strong style="color:var(--accent);">Paris</strong> — <a href="mailto:studio.paris@farruch.com">studio.paris@farruch.com</a></li>
-            <li><strong style="color:var(--accent);">New York</strong> — <a href="mailto:studio.newyork@farruch.com">studio.newyork@farruch.com</a></li>
-            <li><strong style="color:var(--accent);">Dubai</strong> — Exports & Operations</li>
+            <li><strong>Mumbai</strong> — <a href="mailto:admin@farruch.com">admin@farruch.com</a></li>
+            <li><strong>London</strong> — <a href="mailto:studio.london@farruch.com">studio.london@farruch.com</a></li>
+            <li><strong>Milan</strong> — <a href="mailto:office.italia@farruch.com">office.italia@farruch.com</a></li>
+            <li><strong>Paris</strong> — <a href="mailto:studio.paris@farruch.com">studio.paris@farruch.com</a></li>
+            <li><strong>New York</strong> — <a href="mailto:studio.newyork@farruch.com">studio.newyork@farruch.com</a></li>
+            <li><strong>Dubai</strong> — Exports & Operations</li>
           </ul>
-          <div class="social" style="display:flex; gap:1.5rem; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.15rem;">
-            <a href="https://www.instagram.com/Farruch/" target="_blank" style="color:#fff;">Instagram</a>
-            <a href="https://www.linkedin.com/company/farruch-maison/" target="_blank" style="color:#fff;">LinkedIn</a>
+          <div class="social">
+            <a href="https://www.instagram.com/Farruch/" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/company/farruch-maison/" target="_blank">LinkedIn</a>
           </div>
         </div>
-        <form class="contact-form" action="https://www.farruch.com/contact.php" method="post" style="display:flex; flex-direction:column; gap:1.5rem;">
-          <label for="fname" style="color:rgba(255,255,255,0.7); display:flex; flex-direction:column; gap:0.5rem; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.1rem;">Full name
-            <input id="fname" name="fname" type="text" required style="color:#fff; border:none; border-bottom:1px solid rgba(255,255,255,0.2); padding:0.5rem 0; background:transparent; font-size:1rem; outline:none;">
+        <form class="contact-form" action="https://www.farruch.com/contact.php" method="post">
+          <label for="fname">Full name
+            <input id="fname" name="fname" type="text" required>
           </label>
-
-          <label for="email" style="color:rgba(255,255,255,0.7); display:flex; flex-direction:column; gap:0.5rem; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.1rem;">Email
-            <input id="email" name="email" type="email" required style="color:#fff; border:none; border-bottom:1px solid rgba(255,255,255,0.2); padding:0.5rem 0; background:transparent; font-size:1rem; outline:none;">
+          <label for="email">Email
+            <input id="email" name="email" type="email" required>
           </label>
-
-          <label for="message" style="color:rgba(255,255,255,0.7); display:flex; flex-direction:column; gap:0.5rem; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.1rem;">Inquiry
-            <textarea id="message" name="message" rows="4" required style="color:#fff; border:none; border-bottom:1px solid rgba(255,255,255,0.2); padding:0.5rem 0; background:transparent; resize:none; font-size:1rem; outline:none;"></textarea>
+          <label for="message">Inquiry
+            <textarea id="message" name="message" rows="4" required></textarea>
           </label>
-
-          <button class="btn btn-primary" type="submit" style="align-self:flex-start; margin-top:1rem;">Submit</button>
+          <button class="btn btn-primary" type="submit" style="align-self:flex-start; margin-top:1rem; background:var(--text); color:#fff; border-color:var(--text);">Submit</button>
         </form>
       </div>
     </section>
@@ -282,10 +218,10 @@
   <footer class="footer">
     <div>
       <span class="brand">FARRUCH</span>
-      <p style="color:rgba(255,255,255,0.7);">Luxury import & export, and haute couture since 1904.</p>
+      <p>Luxury import & export, and haute couture since 1904.</p>
     </div>
     <div class="footnote">
-      <p style="color:rgba(255,255,255,0.5);">&copy; 2025 Farruch Exports. All rights reserved.</p>
+      <p>&copy; 2025 Farruch Exports. All rights reserved.</p>
     </div>
   </footer>
 
