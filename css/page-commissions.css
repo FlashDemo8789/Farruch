@@ -1,0 +1,193 @@
+:root {
+  --comm-grid-gap: clamp(1.8rem, 4vw, 3rem);
+}
+
+body.page-commissions {
+  background: var(--bg);
+}
+
+.hero-commissions {
+  min-height: 65vh;
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+.hero-visual.hero-commissions-visual {
+  background: linear-gradient(130deg, rgba(8, 8, 8, 0.72), rgba(8, 8, 8, 0.3)),
+    url("../images/whatwedobg7.jpg") center / cover;
+}
+
+.hero-commissions .hero-overlay {
+  background: linear-gradient(110deg, rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.25));
+}
+
+.hero-commissions .hero-content {
+  margin-top: clamp(3.5rem, 9vw, 8rem);
+  max-width: 640px;
+}
+
+.page-commissions main {
+  padding: clamp(4rem, 8vw, 6rem) clamp(2rem, 6vw, 5rem);
+  display: grid;
+  gap: var(--comm-grid-gap);
+}
+
+.commission-intro {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 960px;
+}
+
+.commission-intro p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.commission-panels {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.commission-panels .panel-row {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.commission-panels .panel {
+  padding-bottom: 130%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.commission-panels .panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), transparent 60%);
+}
+
+
+.commission-process {
+  display: grid;
+  gap: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg-contrast);
+  padding: clamp(2rem, 5vw, 3rem);
+}
+
+.commission-process ol {
+  margin: 0;
+  padding-left: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  counter-reset: step;
+}
+
+.commission-process li {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.commission-logistics {
+  display: grid;
+  gap: 1.4rem;
+  max-width: 960px;
+}
+
+.commission-logistics h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.4rem);
+}
+
+.commission-logistics p {
+  margin: 0;
+  font-size: 1.02rem;
+  color: var(--muted);
+}
+
+.commission-logistics ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  display: grid;
+  gap: 0.6rem;
+}
+
+.commission-contact {
+  background: var(--bg-contrast);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: clamp(2rem, 5vw, 3rem);
+  display: grid;
+  gap: 2rem;
+}
+
+.commission-contact .contact-layout {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.commission-contact h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.4rem);
+  margin: 0;
+}
+
+.commission-contact .contact-details ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.commission-contact .contact-details a {
+  text-decoration: underline;
+}
+
+.commission-contact form {
+  display: grid;
+  gap: 1rem;
+}
+
+.commission-contact label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.commission-contact input,
+.commission-contact textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.6);
+  font-family: var(--sans);
+}
+
+.commission-contact textarea {
+  resize: vertical;
+}
+
+.commission-contact .btn-primary {
+  align-self: start;
+}
+
+@media (max-width: 640px) {
+  .page-commissions main {
+    padding: 3.5rem 1.5rem 4rem;
+  }
+
+  .commission-panels .panel {
+    padding-bottom: 100%;
+  }
+}

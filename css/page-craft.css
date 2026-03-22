@@ -1,0 +1,177 @@
+:root {
+  --craft-grid-gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+body.page-craft {
+  background: var(--bg);
+}
+
+.hero-craft {
+  min-height: 65vh;
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+.hero-visual.hero-craft-visual {
+  background: linear-gradient(120deg, rgba(8, 8, 8, 0.75), rgba(8, 8, 8, 0.25)),
+    url("../images/whatwedobg1.jpg") center / cover;
+}
+
+.hero-craft .hero-overlay {
+  background: linear-gradient(130deg, rgba(5, 5, 5, 0.65), rgba(5, 5, 5, 0.25));
+}
+
+.hero-craft .hero-content {
+  margin-top: clamp(3.5rem, 8vw, 7rem);
+  max-width: 640px;
+}
+
+.page-craft main {
+  padding: clamp(4rem, 8vw, 6rem) clamp(2rem, 6vw, 5rem);
+  display: grid;
+  gap: clamp(3rem, 6vw, 5rem);
+}
+
+.craft-intro {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 960px;
+}
+
+.craft-intro p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.craft-grid {
+  display: grid;
+  gap: var(--craft-grid-gap);
+}
+
+.craft-group {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.craft-group header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.craft-group header h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  margin: 0;
+}
+
+.craft-group header span {
+  text-transform: uppercase;
+  letter-spacing: 0.35rem;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.craft-cards {
+  display: grid;
+  gap: var(--craft-grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.craft-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--bg-contrast);
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.craft-card img,
+.craft-card video {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.craft-card video {
+  background: #000;
+}
+
+.craft-card .card-content {
+  padding: 1.8rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.craft-card h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+}
+
+.craft-card p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.craft-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.craft-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: clamp(2rem, 5vw, 3rem);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+}
+
+.craft-cta h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 2.5vw, 2.1rem);
+}
+
+.craft-cta .btn {
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+.craft-cta .btn:hover,
+.craft-cta .btn:focus-visible {
+  background: var(--accent);
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .page-craft main {
+    padding: 3.5rem 1.5rem 4rem;
+  }
+
+  .craft-card img,
+  .craft-card video {
+    height: 200px;
+  }
+
+  .craft-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

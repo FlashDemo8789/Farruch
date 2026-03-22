@@ -1,0 +1,103 @@
+.font-oswald {
+    font-family: 'Oswald', sans-serif !important;
+}
+.font-monsterrat-alt{
+    font-family: 'Montserrat Alternates', sans-serif !important;
+}
+.font-josefin-slab{
+    font-family: 'Josefin Slab', serif !important;
+}
+.font-philosopher{
+    font-family: 'Philosopher', sans-serif !important;
+}
+
+.section.active .active.slide01{
+	background-image: url(../images/banner01.jpg);
+}
+.section.active .active.slide02{
+	background-image: url(../images/banner02.jpg);
+}
+.section.active .active.slide03{
+	background-image: url(../images/banner03.jpg);
+}
+.section.active .active.slide04{
+	background-image: url(../images/banner04.jpg);
+}
+.section.active .active.aboutbg0{
+	background-image: url(../images/aboutbg-0.jpg);
+}
+.section.active .active.aboutbg{
+	background-image: url(../images/aboutbg1.jpg);
+}
+.section.active .active.aboutbg2{
+	background-image: url(../images/aboutbg2.jpg);
+}
+.section.active .active.aboutbg2_1{
+	background-image: url(../images/aboutbg2_1.jpg);
+}
+.section.active .active.aboutbg3{
+	background-image: url(../images/aboutbg3.jpg);
+}
+.section.active .active.aboutbg3_1{
+	background-image: url(../images/aboutbg3_1.jpg);
+}
+.section.active .active.aboutbg4{
+	background-image: url(../images/aboutbg4-1.jpg);
+}
+.section.active .active.aboutbg5 {
+    background-image: url(../images/aboutbg5.jpg);
+}
+.section.active .active.whatwedobg {
+    background-image: url(../images/whatwedobg1.jpg);
+}
+.section.active .active.whatwedobg2 {
+    background-image: url(../images/whatwedobg2.jpg);
+}
+.section.active .active.whatwedobg3 {
+    background-image: url(../images/whatwedobg3.jpg);
+}
+.section.active .active.whatwedobg4 {
+    background-image: url(../images/whatwedobg4.jpg);
+}
+.section.active .active.whatwedobg5 {
+    background-image: url(../images/whatwedobg5.jpg);
+}
+.section.active .active.whatwedobg5_1 {
+    background-image: url(../images/whatwedobg5_2.jpg);
+}
+.section.active .active.whatwedobg6 {
+    background-image: url(../images/whatwedobg6.jpg);
+}
+.section.active .active.whatwedobg7 {
+    background-image: url(../images/whatwedobg7.jpg);
+}
+.section.active .active.whatwedobg8 {
+    background-image: url(../images/whatwedobg8.jpg);
+}
+.section.active .active.whatwedobg9 {
+    background-image: url(../images/whatwedobg9.jpg);
+}
+.section.active .active.whatwedobg10 {
+    background-image: url(../images/whatwedobg10.jpg);
+}
+.section.active .active.whatwedobg11 {
+    background-image: url(../images/whatwedobg11.jpg);
+}
+.section.active .active.initiativesbg0{
+    background-image: url(../images/initiativesbg0.jpg);
+}
+.section.active .active.initiativesbg {
+    background-image: url(../images/initiativesbg1.jpg);
+}
+.section.active .active.initiativesbg2 {
+    background-image: url(../images/initiativesbg2.jpg);
+}
+.section.active .active.initiativesbg3 {
+    background-image: url(../images/initiativesbg3.jpg);
+}
+.section.active .active.initiativesbg4 {
+    background-image: url(../images/initiativesbg4.jpg);
+}
+.active.mediabg {
+    background-image: url(../images/mediabg.jpg);
+}

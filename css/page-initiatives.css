@@ -1,0 +1,150 @@
+:root {
+  --init-gap: clamp(1.8rem, 4vw, 3rem);
+}
+
+body.page-initiatives {
+  background: var(--bg);
+}
+
+.hero-initiatives {
+  min-height: 65vh;
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+.hero-visual.hero-initiatives-visual {
+  background: linear-gradient(130deg, rgba(8, 8, 8, 0.72), rgba(8, 8, 8, 0.35)),
+    url("../images/initiativesbg1.jpg") center / cover;
+}
+
+.hero-initiatives .hero-overlay {
+  background: linear-gradient(120deg, rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.3));
+}
+
+.hero-initiatives .hero-content {
+  margin-top: clamp(3.5rem, 9vw, 7rem);
+  max-width: 620px;
+}
+
+.page-initiatives main {
+  padding: clamp(4rem, 8vw, 6rem) clamp(2rem, 6vw, 5rem);
+  display: grid;
+  gap: var(--init-gap);
+}
+
+.initiatives-intro {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 960px;
+}
+
+.initiatives-grid {
+  display: grid;
+  gap: var(--init-gap);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.initiative-card {
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: var(--bg-contrast);
+  padding: clamp(1.8rem, 3vw, 2.5rem);
+  display: grid;
+  gap: 1rem;
+}
+
+.initiative-card h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.6rem;
+}
+
+.initiative-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.sustainability {
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  padding: clamp(2rem, 4vw, 3rem);
+  background: rgba(255, 255, 255, 0.6);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.sustainability h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.4rem);
+}
+
+.sustainability ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  display: grid;
+  gap: 0.7rem;
+}
+
+.ethics {
+  display: grid;
+  gap: 1.5rem;
+  background: var(--bg-contrast);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: clamp(2rem, 5vw, 3rem);
+}
+
+.ethics p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.ethics .quote {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--accent-dark);
+}
+
+.initiatives-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: clamp(2rem, 5vw, 3rem);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+.initiatives-cta h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+}
+
+.initiatives-cta .btn {
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+.initiatives-cta .btn:hover,
+.initiatives-cta .btn:focus-visible {
+  background: var(--accent);
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .page-initiatives main {
+    padding: 3.5rem 1.5rem 4rem;
+  }
+
+  .initiatives-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
