@@ -3,13 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farruch | Maison of Embroidered Couture</title>
+  <title>Farruch | Global Luxury Exporter</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap">
   <link rel="stylesheet" href="css/maison-farruch.css">
+  <style>
+    /* Additions for Exporter Home */
+    .hero-exporter {
+      background: linear-gradient(rgba(20,20,20,0.5), rgba(20,20,20,0.7)), url('images/banner02.jpg') center/cover;
+    }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .product-item {
+      background: var(--bg-contrast);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform var(--transition);
+      text-align: center;
+    }
+    
+    .product-item:hover {
+      transform: translateY(-8px);
+    }
+    
+    .product-image {
+      height: 250px;
+      background: #e5dcd0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    
+    .product-info {
+      padding: 1.5rem;
+    }
+    
+    .product-info h3 {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-origin {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .maison-portal {
+      background: #111;
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      padding: 0;
+    }
+    
+    .maison-portal-text {
+      padding: 4rem clamp(2rem, 8vw, 6rem);
+    }
+    
+    .maison-portal-img {
+      height: 100%;
+      min-height: 600px;
+      background: url('images/banner01.jpg') center/cover;
+    }
+    
+    @media(max-width: 900px) {
+      .maison-portal {
+        grid-template-columns: 1fr;
+      }
+      .maison-portal-img {
+        min-height: 400px;
+      }
+    }
+  </style>
   <link rel="icon" href="images/logo-farruch.png" type="image/png">
 </head>
 <body>
-  <header class="hero" id="top">
+  <header class="hero hero-exporter" id="top">
     <nav class="nav">
       <a class="brand" href="index.html">FARRUCH</a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
@@ -17,226 +97,176 @@
         <span></span>
       </button>
       <ul class="nav-links" id="nav-menu">
-        <li><a href="maison.html" data-page="maison">Maison</a></li>
+        <li><a href="index.html" data-page="home">Global Export</a></li>
+        <li><a href="maison.html" data-page="maison">The Maison</a></li>
         <li><a href="craft.html" data-page="craft">Craft</a></li>
         <li><a href="runway.html" data-page="runway">Runway</a></li>
         <li><a href="services.html" data-page="services">Services</a></li>
         <li><a href="commissions.html" data-page="commissions">Commissions</a></li>
-        <li><a href="initiatives.html" data-page="initiatives">Initiatives</a></li>
-        <li><a href="archive.html" data-page="archive">Archive</a></li>
-        <li><a href="#contact" data-page="contact">Contact</a></li>
+        <li><a href="index.html#contact" data-page="contact">Contact</a></li>
       </ul>
     </nav>
     <div class="hero-content">
-      <p class="eyebrow">Farruch Atelier</p>
-      <h1>Needlework dramaturgy for the maisons that script fashion history.</h1>
-      <p class="lede">From the quiet light of Farruch Tower in Mumbai to fittings in Paris, Milan, London, and New York, our embroiderers compose narratives of silk, crystal, and sequins for the world’s haute couture runways.</p>
+      <p class="eyebrow">Farruch Exports</p>
+      <h1>Exceptional Global Orchestration</h1>
+      <p class="lede">Specializing in the seamless import and export of premium luxury products, connecting discerning clients with the world's most exclusive goods—and home to our own legendary haute couture embroidery ateliers.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="craft.html">Enter the ateliers</a>
-      <a class="btn btn-ghost" href="runway.html">View the runway dossier</a>
+        <a class="btn btn-primary" href="#products">Explore the Collection</a>
+        <a class="btn btn-ghost" href="services.html">View Premium Services</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hero-video" aria-hidden="true">
-        <video autoplay muted loop playsinline poster="images/banner02.jpg">
-          <source src="videos/hero-luxe.webm?v=20251104" type="video/webm">
-          <source src="videos/hero-luxe.mp4?v=20251104" type="video/mp4">
-        </video>
-      </div>
-      <div class="hero-overlay"></div>
-    </div>
-    <div class="hero-cta">
-      <span class="cta-label">By Appointment</span>
-      <h3>Reserve a digital atelier tour</h3>
-      <a class="btn btn-primary btn-sm" href="#contact">Schedule now</a>
-    </div>
+    <div class="hero-overlay"></div>
   </header>
 
   <main>
-    <section id="maison" class="section maison reveal">
+    <section id="products" class="section reveal">
       <div class="section-heading">
-        <span class="eyebrow">Heritage 1904 — Present</span>
-        <h2>The maison and its lineage</h2>
+        <span class="eyebrow">Luxury Collection</span>
+        <h2>Sourced from prestige artisans</h2>
       </div>
-      <div class="grid">
-        <article>
-          <p>Founded in 1904, Farruch began as the Zariwala family’s pledge to guard India’s most intricate embroidery disciplines while speaking fluently to Parisian couture. Six generations later, the maison continues to answer couture briefs with the assurance of artisans who carry muscle memory in every stitch.</p>
-          <p>Each commission is orchestrated from Farruch Tower in Mumbai and translated through liaison studios in London, Milan, Paris, and New York—ensuring designers feel the maison’s presence from concept to final promenade.</p>
-        </article>
-        <aside>
-          <h3>Maison footprint</h3>
-          <ul>
-            <li>Mumbai — Tower ateliers, archive salons, and innovation lab</li>
-            <li>London — Concept studio for moodboard dramaturgy</li>
-            <li>Milan — Couture liaison and fittings suite</li>
-            <li>Paris — Collaboration bureau beside the maisons</li>
-            <li>New York — Client experience and red-carpet atelier</li>
-          </ul>
-        </aside>
-        <figure>
-          <img src="images/banner01.jpg" alt="Farruch artisans stretching silk over an embroidery frame inside the tower atelier">
-          <figcaption>The fourth-floor tambour studio at Farruch Tower.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section id="artistry" class="section artistry reveal">
-      <div class="section-heading">
-        <span class="eyebrow">Artistry</span>
-        <h2>The anatomy of our ateliers</h2>
-      </div>
-      <div class="cards">
-        <article class="card">
-          <h3>Hand Embroidery</h3>
-          <p>Master embroiderers draft every stitch path by hand, translating briefs into zardozi, tambour, bullion, and micro pavé sequences that carry the maison’s signature lightness.</p>
-        </article>
-        <article class="card">
-          <h3>Material Alchemy</h3>
-          <p>Textile researchers test silk organza, metallic chiffon, and bio-based fibres for drape, pigment absorption, and embellishment compatibility before the first stone is set.</p>
-        </article>
-        <article class="card">
-          <h3>Tailoring Architecture</h3>
-          <p>Pattern masters build scaffolding beneath the embroidery, ensuring corsetry, fluid gowns, and molded silhouettes honour the designer’s line on runway and red carpet.</p>
-        </article>
-        <article class="card">
-          <h3>Bijoux &amp; Accents</h3>
-          <p>Dedicated artisans craft jewellery panels, minaudières, footwear, and veils so that every commission arrives with a fully harmonised constellation of accessories.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="runway" class="section runway reveal">
-      <div class="section-heading">
-        <span class="eyebrow">Runway Edit</span>
-        <h2>Highlights from the couture ledger</h2>
-        <p>Each look carries a Farruch fingerprint—botanical armour for London, liquid light for Paris, red-carpet reveries for New York.</p>
-      </div>
-      <div class="runway-strip">
-        <figure>
-          <img src="images/runway/alexander-mcqueen/slide2.jpg" alt="Alexander McQueen couture dress with embroidery">
-          <figcaption>Alexander McQueen — Verdant relief armour</figcaption>
-        </figure>
-        <figure>
-          <img src="images/runway/atelier-versace/slide3.jpg" alt="Atelier Versace embellished gown">
-          <figcaption>Atelier Versace — Liquid crystal cascade</figcaption>
-        </figure>
-        <figure>
-          <img src="images/runway/elie-saab/slide1.jpg" alt="Elie Saab couture showing Farruch embroidery">
-          <figcaption>Elie Saab — Celestial overture</figcaption>
-        </figure>
-        <figure>
-          <img src="images/redcarpet/slide24.jpg" alt="Naomi Campbell wearing couture embroidery">
-          <figcaption>Red Carpet — Naomi Campbell, constellation gown</figcaption>
-        </figure>
-        <figure>
-          <img src="images/runway/ralph-russo/slide1.jpg" alt="Ralph and Russo couture detail">
-          <figcaption>Ralph &amp; Russo — Featherlight filigree</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section id="services" class="section services reveal">
-      <div class="section-heading">
-        <span class="eyebrow">Export Solutions</span>
-        <h2>Global sourcing and secure logistics</h2>
-      </div>
-      <div class="grid">
-        <article>
-          <p>Beyond our legacy in embroidery, Farruch orchestrates the seamless global movement of luxury goods. We provide end-to-end import and export solutions tailored for fashion houses, galleries, and private collectors—from rare material sourcing and rigorous authentication to vault-to-vault logistics across Paris, Milan, Dubai, Tokyo, and New York.</p>
-          <a class="btn btn-primary" href="services.html" style="margin-top: 1.5rem;">Explore Premium Services</a>
-        </article>
-        <figure>
-          <img src="images/whatwedobg11.jpg" alt="Farruch exports and logistics distribution">
-        </figure>
-      </div>
-    </section>
-
-    <section id="commissions" class="section commissions reveal">
-      <div class="section-heading">
-        <span class="eyebrow">Bespoke Commissions</span>
-        <h2>From concept board to couture finale</h2>
-      </div>
-      <div class="commission-grid">
-        <div class="commission-text">
-          <p>Each engagement opens with an immersion. Creative directors gather in Farruch Tower while our team scripts tactile essays of lace, light, and silhouette. Swatch caskets and digital lookbooks travel in tandem so every choice is felt as much as it is seen.</p>
-          <p>Prototypes move between Mumbai, Paris, and New York for fittings, while dedicated merchandisers steward timing, hand-carry deliveries, and ensure the couture reveal lands precisely on cue.</p>
+      <div class="product-grid">
+        <div class="product-item">
+          <div class="product-image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%">
+              <rect width="100%" height="100%" fill="#e5dcd0" />
+              <circle cx="150" cy="125" r="60" fill="#f8f5f0" />
+              <path d="M120,100 L180,100 L180,150 L120,150 Z" fill="none" stroke="#c9a875" stroke-width="2" />
+              <circle cx="150" cy="125" r="20" fill="#d4af37" />
+            </svg>
+          </div>
+          <div class="product-info">
+            <h3>Fine Jewelry</h3>
+            <p class="product-origin">Paris, France</p>
+            <p>Exquisite handcrafted pieces featuring the finest gemstones and precious metals, verified for provenance.</p>
+          </div>
         </div>
-        <div class="commission-panels">
-          <div class="panel" style="background-image:url('images/commission-panel-runway1.jpg');"></div>
-          <div class="panel" style="background-image:url('images/commission-panel-runway2.jpg');"></div>
-          <div class="panel" style="background-image:url('images/commission-panel-runway3.jpg');"></div>
+        
+        <div class="product-item">
+          <div class="product-image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%">
+              <rect width="100%" height="100%" fill="#e5dcd0" />
+              <rect x="80" y="70" width="140" height="110" fill="#f8f5f0" />
+              <path d="M80,70 L220,70 L220,180 L80,180 Z" fill="none" stroke="#c9a875" stroke-width="2" />
+              <path d="M100,90 L200,90 L200,160 L100,160 Z" fill="none" stroke="#8a6d3b" stroke-width="1" stroke-dasharray="2,2" />
+            </svg>
+          </div>
+          <div class="product-info">
+            <h3>Luxury Textiles</h3>
+            <p class="product-origin">Milan, Italy</p>
+            <p>Premium fabrics including cashmere, silk, and specialty woven materials curated for international maisons.</p>
+          </div>
+        </div>
+        
+        <div class="product-item">
+          <div class="product-image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%">
+              <rect width="100%" height="100%" fill="#e5dcd0" />
+              <path d="M120,80 L180,80 L200,150 L100,150 Z" fill="#f8f5f0" />
+              <path d="M120,80 L180,80 L200,150 L100,150 Z" fill="none" stroke="#c9a875" stroke-width="2" />
+              <path d="M130,100 L170,100" stroke="#8a6d3b" stroke-width="1" />
+              <path d="M120,120 L180,120" stroke="#8a6d3b" stroke-width="1" />
+            </svg>
+          </div>
+          <div class="product-info">
+            <h3>Artisanal Leather</h3>
+            <p class="product-origin">Florence, Italy</p>
+            <p>Hand-crafted leather accessories made using centuries-old techniques, handled with climate-controlled precision.</p>
+          </div>
+        </div>
+        
+        <div class="product-item">
+          <div class="product-image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%">
+              <rect width="100%" height="100%" fill="#e5dcd0" />
+              <circle cx="150" cy="120" r="70" fill="#f8f5f0" />
+              <path d="M140,90 L160,90 L160,120 L180,120 L180,140 L120,140 L120,120 L140,120 Z" fill="#e5dcd0" stroke="#c9a875" stroke-width="2" />
+            </svg>
+          </div>
+          <div class="product-info">
+            <h3>Luxury Timepieces</h3>
+            <p class="product-origin">Geneva, Switzerland</p>
+            <p>Precision watches and clocks from the world's most prestigious watchmakers, secured in insured logistics.</p>
+          </div>
+        </div>
+        
+        <div class="product-item">
+          <div class="product-image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%">
+              <rect width="100%" height="100%" fill="#e5dcd0" />
+              <path d="M100,100 Q150,50 200,100 Q250,150 200,200 Q150,250 100,200 Q50,150 100,100" fill="#f8f5f0" />
+              <path d="M100,100 Q150,50 200,100 Q250,150 200,200 Q150,250 100,200 Q50,150 100,100" fill="none" stroke="#c9a875" stroke-width="2" />
+            </svg>
+          </div>
+          <div class="product-info">
+            <h3>Crystal Artworks</h3>
+            <p class="product-origin">Prague, Czech Republic</p>
+            <p>Handcrafted crystal pieces showcasing exceptional excellence, transported with white-glove logistics.</p>
+          </div>
+        </div>
+        
+        <div class="product-item">
+          <div class="product-image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" width="100%" height="100%">
+              <rect width="100%" height="100%" fill="#e5dcd0" />
+              <rect x="90" y="80" width="120" height="90" rx="5" fill="#f8f5f0" />
+              <rect x="90" y="80" width="120" height="90" rx="5" fill="none" stroke="#c9a875" stroke-width="2" />
+            </svg>
+          </div>
+          <div class="product-info">
+            <h3>Rare Collectibles</h3>
+            <p class="product-origin">Global Sourcing</p>
+            <p>Limited edition and one-of-a-kind collectible items from around the world, fully authenticated.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="initiatives" class="section initiatives reveal">
-      <div class="section-heading">
-        <span class="eyebrow">Commitments</span>
-        <h2>Ensuring the craft endures</h2>
+    <section class="maison-portal reveal" id="maison">
+      <div class="maison-portal-text">
+        <span class="eyebrow" style="color:var(--accent); letter-spacing:0.2rem; text-transform:uppercase; font-size:0.8rem;">The Crown Jewel</span>
+        <h2 style="font-family:var(--serif); font-size:3rem; margin:1rem 0;">Maison Farruch</h2>
+        <p style="font-size:1.1rem; line-height:1.7; color:rgba(255,255,255,0.8); margin-bottom:2rem;">Beyond our global export footprint, Farruch operates its own legendary haute couture embroidery atelier. Since 1904, our artisans in Mumbai have composed brilliant narratives of silk, crystal, and sequin for the world’s leading fashion houses—with liaisons in Paris, London, Milan, and New York.</p>
+        <a class="btn btn-primary" href="maison.html">Enter the Maison</a>
+        <a class="btn btn-primary" href="runway.html" style="background:transparent; border:1px solid rgba(255,255,255,0.4); color:#fff; margin-left:1rem;">View Runway Edit</a>
       </div>
-      <div class="initiatives-grid">
-        <article>
-          <h3>Central Saint Martins Residency</h3>
-          <p>Each season we underwrite a CSM graduate’s couture collection, pairing them with Farruch mentors in Mumbai and Paris to translate sketches into debut-ready embroideries.</p>
-        </article>
-        <article>
-          <h3>Teach · Empower · Employ</h3>
-          <p>Our women-led embroidery school offers paid training to underrepresented artisans, culminating in full-time atelier placements and ongoing mentorship.</p>
-        </article>
-        <article>
-          <h3>Responsible Luxury</h3>
-          <p>Solar arrays, rainwater harvesting, material recycling, and our UTTHAN commitments anchor Farruch’s promise to honour the planet as reverently as the craft.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="press" class="section press reveal">
-      <div class="press-card">
-        <img src="images/video-cont.jpg" alt="Mary Katrantzou show imagery">
-        <div class="press-content">
-          <span class="eyebrow">Press Highlight</span>
-          <h2>Mary Katrantzou × Farruch</h2>
-          <p>Temple of Poseidon, Athens — Farruch translated Katrantzou’s Grecian iconography into a shimmering hymn of pearls and mirrored glass for ELPIDA’s 30th anniversary runway.</p>
-          <a class="btn btn-link" href="https://www.youtube.com/watch?v=ehvR4raJ31I" target="_blank" rel="noopener">View the film</a>
-        </div>
-      </div>
+      <div class="maison-portal-img" aria-label="Maison Farruch artisans"></div>
     </section>
 
     <section id="contact" class="section contact reveal">
       <div class="section-heading">
-        <span class="eyebrow">Contact</span>
-        <h2>Book a private salon consultation</h2>
+        <span class="eyebrow">Connect</span>
+        <h2>Global Inquiries</h2>
       </div>
-      <div class="contact-layout">
+      <div class="contact-layout" style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:flex-start;">
         <div class="contact-details">
-          <h3>Global residences</h3>
-          <ul>
+          <h3 style="font-family:var(--serif); font-size:1.5rem; margin-bottom:1rem; font-weight:400;">Distribution & Atelier Network</h3>
+          <ul style="list-style:none; padding:0; margin-bottom:2rem; line-height:2;">
             <li><strong>Mumbai</strong> — <a href="mailto:admin@farruch.com">admin@farruch.com</a></li>
             <li><strong>London</strong> — <a href="mailto:studio.london@farruch.com">studio.london@farruch.com</a></li>
             <li><strong>Milan</strong> — <a href="mailto:office.italia@farruch.com">office.italia@farruch.com</a></li>
             <li><strong>Paris</strong> — <a href="mailto:studio.paris@farruch.com">studio.paris@farruch.com</a></li>
             <li><strong>New York</strong> — <a href="mailto:studio.newyork@farruch.com">studio.newyork@farruch.com</a></li>
+            <li><strong>Dubai</strong> — Exports & Operations</li>
           </ul>
-          <div class="social">
-            <a href="https://www.instagram.com/Farruch/" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://www.linkedin.com/company/farruch-maison/" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://in.pinterest.com/Farruch/_saved/" target="_blank" rel="noopener">Pinterest</a>
+          <div class="social" style="display:flex; gap:1.5rem; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.15rem;">
+            <a href="https://www.instagram.com/Farruch/" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/company/farruch-maison/" target="_blank">LinkedIn</a>
           </div>
         </div>
-        <form class="contact-form" action="https://www.farruch.com/contact.php" method="post">
-          <label for="fname">Full name</label>
-          <input id="fname" name="fname" type="text" required>
+        <form class="contact-form" action="https://www.farruch.com/contact.php" method="post" style="display:flex; flex-direction:column; gap:1.5rem;">
+          <label for="fname" style="display:flex; flex-direction:column; gap:0.5rem; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.1rem;">Full name
+            <input id="fname" name="fname" type="text" required style="border:none; border-bottom:1px solid var(--border); padding:0.5rem 0; background:transparent; font-size:1rem; outline:none;">
+          </label>
 
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required>
+          <label for="email" style="display:flex; flex-direction:column; gap:0.5rem; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.1rem;">Email
+            <input id="email" name="email" type="email" required style="border:none; border-bottom:1px solid var(--border); padding:0.5rem 0; background:transparent; font-size:1rem; outline:none;">
+          </label>
 
-          <label for="phone">Phone</label>
-          <input id="phone" name="phone" type="tel" required>
+          <label for="message" style="display:flex; flex-direction:column; gap:0.5rem; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.1rem;">Inquiry
+            <textarea id="message" name="message" rows="4" required style="border:none; border-bottom:1px solid var(--border); padding:0.5rem 0; background:transparent; resize:none; font-size:1rem; outline:none;"></textarea>
+          </label>
 
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-
-          <button class="btn btn-primary" type="submit">Submit inquiry</button>
+          <button class="btn btn-primary" type="submit" style="align-self:flex-start; margin-top:1rem;">Submit</button>
         </form>
       </div>
     </section>
@@ -245,10 +275,10 @@
   <footer class="footer">
     <div>
       <span class="brand">FARRUCH</span>
-      <p>Maison of embroidered couture since 1904.</p>
+      <p>Luxury import & export, and haute couture since 1904.</p>
     </div>
     <div class="footnote">
-      <p>&copy; 2025 Farruch &amp; Embroideries Pvt Ltd. Crafted in Mumbai.</p>
+      <p>&copy; 2025 Farruch Exports. All rights reserved.</p>
     </div>
   </footer>
 
