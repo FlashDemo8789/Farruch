@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison Farruch | Leadership Team</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/maison-farruch.css">
+  <link rel="stylesheet" href="css/page-maison.css">
+  <link rel="icon" href="images/logo-farruch.png" type="image/png">
+  <style>
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    .team-card {
+      text-align: left;
+    }
+    .team-card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      filter: grayscale(10%);
+      transition: filter 0.4s ease;
+    }
+    .team-card:hover img {
+      filter: grayscale(0%);
+    }
+    .team-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--color-primary);
+      margin-bottom: 0.25rem;
+    }
+    .team-card .member-position {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-gray-dark);
+      margin-bottom: 1rem;
+    }
+    .team-card p {
+      font-size: 0.95rem;
+      color: var(--color-text-body);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body class="page-maison">
+  <header class="hero hero-sub hero-heritage">
+    <nav class="nav">
+      <a class="brand" href="index.html">FARRUCH</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="index.html" data-page="home">Global Export</a></li>
+        <li><a href="maison.html" data-page="maison">The Maison</a></li>
+        <li><a href="craft.html" data-page="craft">Craft</a></li>
+        <li><a href="runway.html" data-page="runway">Runway</a></li>
+        <li><a href="team.html" data-page="team">Team</a></li>
+        <li><a href="services.html" data-page="services">Services</a></li>
+        <li><a href="commissions.html" data-page="commissions">Commissions</a></li>
+        <li><a href="index.html#contact" data-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <p class="eyebrow">The Leadership</p>
+      <h1>Architects of the Maison</h1>
+      <p class="lede">Meet the visionary executives who steer Farruch Exports with expertise, discretion, and an unparalleled dedication to haute couture excellence.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#executives">View the executive board</a>
+      </div>
+    </div>
+    <div class="hero-visual hero-maison"></div>
+    <div class="hero-overlay"></div>
+  </header>
+
+  <main>
+    <section class="maison-lineage" id="executives">
+      <header>
+        <span class="eyebrow">Executive Board</span>
+        <h2>Guiding logic and luxury logistics</h2>
+      </header>
+      <div class="team-grid">
+        <article class="team-card">
+          <img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?w=400&h=500&fit=crop" alt="Portrait of Akram Khan">
+          <h3>Akram Khan</h3>
+          <p class="member-position">Founder & CEO</p>
+          <p>With over 30 years of experience in luxury trade, Akram leads the company with visionary strategy and deep industry connections. His stewardship turned an intimate atelier into a sprawling luxury empire.</p>
+        </article>
+        
+        <article class="team-card">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop" alt="Portrait of Noor Syed">
+          <h3>Noor Syed</h3>
+          <p class="member-position">Chief Operations Officer</p>
+          <p>Noor oversees global operations across our five international bureaus, ensuring seamless haute couture logistics, artisan scheduling, and exceptional service delivery across all global markets.</p>
+        </article>
+        
+        <article class="team-card">
+          <img src="https://images.unsplash.com/photo-1651581947248-40776e9b6578?w=400&h=500&fit=crop" alt="Portrait of Soumudeep Das">
+          <h3>Soumudeep Das</h3>
+          <p class="member-position">Director of Sourcing</p>
+          <p>With extensive experience in luxury product authentication and textile genesis, Soumudeep leads our global sourcing program, ensuring only the rarest silks and ethically mined crystals enter Farruch Tower.</p>
+        </article>
+        
+        <article class="team-card">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=500&fit=crop" alt="Portrait of Sophia Lawson">
+          <h3>Sophia Lawson</h3>
+          <p class="member-position">Director of Client Relations</p>
+          <p>Sophia ensures our couture clients receive personalized, discreet attention. Operating out of the New York salon, she coordinates bespoke commissions from sketch to red carpet execution.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="maison-cta">
+      <h3>Book a private consultation</h3>
+      <p>Connect with our client relations team to discuss bespoke sourcing, custom embroidery, and exclusive logistics.</p>
+      <a class="btn btn-link" href="index.html#contact">Contact the bureau</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <span class="brand">FARRUCH</span>
+      <p>Maison of embroidered couture since 1904.</p>
+    </div>
+    <div class="footnote">
+      <p>&copy; 2025 Farruch &amp; Embroideries Pvt Ltd. Crafted in Mumbai.</p>
+    </div>
+  </footer>
+
+  <script src="js/maison-farruch.js"></script>
+</body>
+</html>
